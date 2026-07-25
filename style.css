@@ -2,6 +2,9 @@
    COLOR PALETTE — derived from logo TRM (gold #bc9601)
    ========================================================= */
 :root {
+  /* Accent */
+  --terracotta: #ffffff;
+
   /* Gold palette */
   --gold:        #bc9601;
   --gold-bright: #d4ac02;
@@ -56,7 +59,8 @@ img { max-width: 100%; display: block; }
 
 strong { font-weight: 700; }
 
-.gold { color: var(--gold); }
+.gold  { color: var(--gold); }
+.terra { color: var(--terracotta); }
 
 /* =========================================================
    SIDEBAR
@@ -101,11 +105,11 @@ strong { font-weight: 700; }
   display: flex;
   align-items: center;
   gap: 14px;
-  padding: 10px 24px;
+  padding: 11px 24px;
   text-decoration: none;
   color: rgba(255,255,255,0.45);
   font-family: var(--font-body);
-  font-size: 13px;
+  font-size: 15px;
   font-weight: 500;
   letter-spacing: 0.2px;
   transition: all .25s ease;
@@ -159,15 +163,15 @@ strong { font-weight: 700; }
 }
 
 .sidebar-footer {
-  padding: 20px 24px;
+  padding: 16px 16px 20px;
   border-top: 1px solid var(--dark-border);
   flex-shrink: 0;
 }
 
-.sidebar-footer p {
+.sidebar-footer-text {
   font-size: 10px;
   color: rgba(255,255,255,0.25);
-  line-height: 1.6;
+  line-height: 1.7;
   letter-spacing: 0.3px;
 }
 
@@ -244,6 +248,16 @@ strong { font-weight: 700; }
 }
 
 .section-lead.light { color: rgba(255,255,255,0.6); }
+
+/* =========================================================
+   LOGO DARK-SECTION FILTER
+   Logo Tel-U dan FIT punya teks gelap — di atas bg gelap
+   gunakan brightness+invert agar terbaca sebagai putih.
+   ========================================================= */
+.inst-logo-dark {
+  filter: brightness(0) invert(1);
+  opacity: 0.85;
+}
 
 /* =========================================================
    PLACEHOLDER IMAGES
@@ -328,6 +342,30 @@ strong { font-weight: 700; }
   max-width: none;
 }
 
+.hero-inst-logos {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 28px;
+}
+
+.hero-inst-img {
+  height: 28px;
+  width: auto;
+  object-fit: contain;
+}
+
+.hero-inst-trm {
+  height: 36px;
+}
+
+.hero-inst-sep {
+  width: 1px;
+  height: 24px;
+  background: rgba(255,255,255,0.2);
+  flex-shrink: 0;
+}
+
 .hero-eyebrow {
   margin-bottom: 20px;
 }
@@ -386,18 +424,18 @@ strong { font-weight: 700; }
 
 .stat-n {
   font-family: var(--font-heading);
-  font-size: 28px;
+  font-size: 38px;
   font-weight: 900;
   color: var(--gold);
   line-height: 1;
 }
 
 .stat-l {
-  font-size: 10px;
+  font-size: 13px;
   color: rgba(255,255,255,0.4);
   text-transform: uppercase;
   letter-spacing: 1px;
-  margin-top: 4px;
+  margin-top: 6px;
 }
 
 .stat-div {
@@ -942,9 +980,29 @@ strong { font-weight: 700; }
   padding: 36px;
 }
 
-.info-logo {
-  width: 160px;
+.info-logos-row {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
   margin-bottom: 28px;
+}
+
+.info-logo-trm {
+  width: 180px;
+  object-fit: contain;
+}
+
+.info-inst-logos {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.info-inst-img {
+  height: 26px;
+  width: auto;
+  object-fit: contain;
 }
 
 .info-table {
