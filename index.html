@@ -22,6 +22,10 @@
         <span class="nav-dot"></span>
         <span class="nav-label">Beranda</span>
       </a>
+      <a href="#kompetensi" class="nav-item" data-section="kompetensi">
+        <span class="nav-dot"></span>
+        <span class="nav-label">Kompetensi</span>
+      </a>
       <a href="#angka"     class="nav-item" data-section="angka">
         <span class="nav-dot"></span>
         <span class="nav-label">TRM dalam Angka</span>
@@ -143,7 +147,65 @@
       <div class="hero-scroll-hint">scroll</div>
     </section>
 
-    <!-- ===== SLIDE 2: TRM DALAM ANGKA ===== -->
+    <!-- ===== SLIDE 2: KOMPETENSI ===== -->
+    <section id="kompetensi" class="slide slide-kompetensi">
+
+      <div class="komp-header">
+        <span class="section-tag tag-dark">Bidang Keahlian</span>
+        <h2 class="section-title light">Kompetensi <span class="gold">TRM</span></h2>
+      </div>
+
+      <div class="komp-grid">
+
+        <!-- Panel 1: Pengembangan Interaktif (besar, kiri) -->
+        <div class="komp-card komp-main" style="background-image: url('gambar/vr2.png'); background-position: center 25%;">
+          <div class="komp-overlay"></div>
+          <div class="komp-body">
+            <div class="komp-label">01 — Pengembangan Sistem Multimedia Interaktif</div>
+            <h3 class="komp-title">Game, AR, VR<br>&amp; Perangkat Keras<br>Multimedia</h3>
+            <ul class="komp-list">
+              <li>Game</li>
+              <li>Augmented Reality (AR)</li>
+              <li>Virtual Reality (VR)</li>
+              <li>Simulator</li>
+              <li>Game Arcade</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Panel 2: Konten Visual & Media -->
+        <div class="komp-card" style="background-image: url('gambar/podcast1.png'); background-position: center 40%;">
+          <div class="komp-overlay"></div>
+          <div class="komp-body">
+            <div class="komp-label">02 — Pembuatan Konten Digital</div>
+            <h3 class="komp-title">Grafis, Animasi<br>&amp; Video/Audio</h3>
+            <ul class="komp-list">
+              <li>Desain Grafis 2D &amp; 3D</li>
+              <li>Animasi Digital</li>
+              <li>Produksi Video</li>
+              <li>Produksi Audio</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Panel 3: Technopreneur -->
+        <div class="komp-card komp-techno">
+          <div class="komp-techno-bg"></div>
+          <div class="komp-body">
+            <div class="komp-label">03 — Technopreneurship</div>
+            <h3 class="komp-title">Wirausaha<br>Berbasis Teknologi</h3>
+            <ul class="komp-list">
+              <li>Startup Teknologi Digital</li>
+              <li>Monetisasi Konten Kreatif</li>
+              <li>Manajemen Proyek</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ===== SLIDE 3: TRM DALAM ANGKA ===== -->
     <section id="angka" class="slide slide-dark">
       <div class="slide-inner angka-inner">
         <div class="angka-header">
@@ -198,48 +260,48 @@
       </div>
     </section>
 
-    <!-- ===== SLIDE 3: SEJARAH ===== -->
+    <!-- ===== SLIDE 4: SEJARAH ===== -->
     <section id="sejarah" class="slide slide-light">
       <div class="slide-inner sejarah-inner">
         <div class="sejarah-visual">
-          <div class="img-placeholder sejarah-img">
-            <div class="ph-label">Foto Kampus / Gedung Selaru</div>
-            <div class="ph-overlay-text">Universitas Telkom<br/>Bandung</div>
-          </div>
+          <img src="gambar/2015.png" alt="Foto 2015" class="sej-img sej-img-active" data-year="2015" />
+          <img src="gambar/2018.png" alt="Foto 2018" class="sej-img" data-year="2018" />
+          <img src="gambar/2020.png" alt="Foto 2020" class="sej-img" data-year="2020" />
+          <img src="gambar/2022.png" alt="Foto 2022" class="sej-img" data-year="2022" />
         </div>
         <div class="sejarah-text">
           <span class="section-tag">Perjalanan Kami</span>
           <h2 class="section-title">Sejarah<br /><span class="gold">Program Studi</span></h2>
-          <p class="section-lead">
-            Berawal dari tekad membangun SDM multimedia Indonesia yang kompetitif secara global.
-          </p>
+          <!-- <p class="section-lead"> -->
+            <!-- Berawal dari tekad membangun SDM multimedia Indonesia yang kompetitif secara global. -->
+          <!-- </p> -->
           <div class="timeline">
-            <div class="tl-item">
+            <div class="tl-item" data-year="2015">
               <div class="tl-year">2015</div>
               <div class="tl-content">
                 <h4>D4 Sistem Multimedia</h4>
-                <p>Program studi berdiri dengan SK No. 101/KPT/I/2015 (18 November 2015), berfokus pada multimedia interaktif.</p>
+                <p>Program studi berdiri dengan SK No. 101/KPT/I/2015 (18 November 2015).</p>
               </div>
             </div>
-            <div class="tl-item">
-              <div class="tl-year">2017</div>
+            <div class="tl-item" data-year="2018">
+              <div class="tl-year">2018</div>
               <div class="tl-content">
                 <h4>Rebranding TRM</h4>
-                <p>Berganti nama menjadi <strong>Sarjana Terapan Teknologi Rekayasa Multimedia</strong> (D4 TRM) melalui Kepmenristekdikti No. 257 Tahun 2017, SK 747/KPT/I/2018.</p>
+                <p>Berganti nama menjadi <strong>S1 Terapan Teknologi Rekayasa Multimedia</strong> (D4 TRM) melalui Kepmenristekdikti No. 257 Tahun 2017, SK 747/KPT/I/2018.</p>
               </div>
             </div>
-            <div class="tl-item">
+            <div class="tl-item" data-year="2020">
               <div class="tl-year">2020</div>
               <div class="tl-content">
                 <h4>Kurikulum OBE</h4>
-                <p>Kurikulum berbasis Outcome Based Education (OBE) diterapkan, diperkuat dengan kerjasama mitra industri nasional dan internasional.</p>
+                <p>Kurikulum berbasis Outcome Based Education (OBE) diterapkan.</p>
               </div>
             </div>
-            <div class="tl-item tl-highlight">
+            <div class="tl-item" data-year="2022">
               <div class="tl-year">2022</div>
               <div class="tl-content">
                 <h4>Akreditasi UNGGUL</h4>
-                <p>Meraih akreditasi tertinggi <strong>UNGGUL</strong> dari BAN-PT (SK No. 2304/SK/BAN-PT/Akred/ST/IV/2022).</p>
+                <p>Meraih akreditasi <strong>UNGGUL</strong> dari BAN-PT (SK No. 2304/SK/BAN-PT/Akred/ST/IV/2022).</p>
               </div>
             </div>
           </div>
@@ -247,21 +309,19 @@
       </div>
     </section>
 
-    <!-- ===== SLIDE 3: VISI MISI ===== -->
+    <!-- ===== SLIDE 5: VISI MISI ===== -->
     <section id="visi-misi" class="slide slide-dark">
       <div class="slide-inner visi-inner">
         <div class="visi-left">
           <span class="section-tag tag-dark">Arah &amp; Tujuan</span>
-          <h2 class="section-title light">Visi &amp;<br /><span class="gold">Misi</span></h2>
-          <div class="visi-box">
-            <div class="visi-label">VISI 2028</div>
+          <h2 class="section-title light">Visi &amp;<span class="gold"> Misi</span></h2>
+          <div class="visi-wrap">
+            <div class="visi-label">Visi Program Studi</div>
             <p class="visi-text">
               Menjadi program studi vokasi unggulan berskala internasional yang memadukan keahlian dalam bidang
-              <strong>konten</strong>, <strong>rekayasa multimedia interaktif</strong>, dan <strong>kewirausahaan</strong>.
+              <strong>konten</strong>, <strong>rekayasa multimedia interaktif</strong>, dan <strong>kewirausahaan</strong>
+              pada tahun 2028.
             </p>
-          </div>
-          <div class="img-placeholder visi-img">
-            <div class="ph-label">Foto Kegiatan / Acara Prodi</div>
           </div>
         </div>
         <div class="visi-right">
@@ -288,7 +348,7 @@
       </div>
     </section>
 
-    <!-- ===== SLIDE 4: PROFIL LULUSAN ===== -->
+    <!-- ===== SLIDE 6: PROFIL LULUSAN ===== -->
     <section id="lulusan" class="slide slide-light">
       <div class="slide-inner lulusan-inner">
         <div class="lulusan-header">
@@ -342,7 +402,7 @@
       </div>
     </section>
 
-    <!-- ===== SLIDE 5: PLO / CAPAIAN PEMBELAJARAN ===== -->
+    <!-- ===== SLIDE 7: PLO / CAPAIAN PEMBELAJARAN ===== -->
     <section id="plo" class="slide slide-dark">
       <div class="slide-inner plo-inner">
         <div class="plo-header">
@@ -405,7 +465,7 @@
       </div>
     </section>
 
-    <!-- ===== SLIDE 6: PRESTASI ===== -->
+    <!-- ===== SLIDE 8: PRESTASI ===== -->
     <section id="prestasi" class="slide slide-light">
       <div class="slide-inner prestasi-inner">
         <div class="prestasi-header">
@@ -464,7 +524,7 @@
       </div>
     </section>
 
-    <!-- ===== SLIDE 7: KONTAK ===== -->
+    <!-- ===== SLIDE 9: KONTAK ===== -->
     <section id="kontak" class="slide slide-dark slide-kontak">
       <div class="slide-inner kontak-inner">
         <div class="kontak-left">
@@ -585,6 +645,22 @@
         card.querySelectorAll('.angka-num[data-target]').forEach(animateCount);
       });
     });
+
+    // ── Timeline image swap ──
+    const tlItems = document.querySelectorAll('.tl-item[data-year]');
+    const sejImgs = document.querySelectorAll('.sej-img[data-year]');
+
+    function showSejImg(year) {
+      sejImgs.forEach(img => {
+        img.classList.toggle('sej-img-active', img.dataset.year === year);
+      });
+    }
+
+    tlItems.forEach(item => {
+      item.addEventListener('mouseenter', () => showSejImg(item.dataset.year));
+    });
+
+    document.querySelector('.timeline').addEventListener('mouseleave', () => showSejImg('2015'));
   </script>
 
 </body>

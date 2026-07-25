@@ -603,7 +603,159 @@ strong { font-weight: 700; }
 }
 
 /* =========================================================
-   SLIDE 2: TRM DALAM ANGKA
+   SLIDE 2: KOMPETENSI
+   ========================================================= */
+.slide-kompetensi {
+  justify-content: flex-start;
+  background: var(--dark);
+  padding: 0;
+  gap: 0;
+}
+
+.komp-header {
+  padding: 52px 64px 28px;
+  flex-shrink: 0;
+}
+
+.komp-grid {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 3px;
+  min-height: 0;
+}
+
+/* ── Base card ── */
+.komp-card {
+  position: relative;
+  overflow: hidden;
+  background-size: cover;
+  background-color: var(--dark-3);
+}
+
+.komp-main {
+  grid-row: 1 / 3;
+}
+
+/* Dark gradient overlay — heavier at bottom for text readability */
+.komp-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.88) 0%,
+    rgba(0, 0, 0, 0.45) 45%,
+    rgba(0, 0, 0, 0.18) 100%
+  );
+  transition: opacity .4s ease;
+}
+
+.komp-card:hover .komp-overlay {
+  opacity: 0.8;
+}
+
+/* ── Technopreneur card (no photo) ── */
+.komp-techno {
+  background: linear-gradient(145deg, #1c190a 0%, var(--dark-3) 100%);
+}
+
+.komp-techno-bg {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 85% 15%, rgba(188, 150, 1, 0.18) 0%, transparent 55%),
+    radial-gradient(ellipse at 15% 85%, rgba(188, 150, 1, 0.08) 0%, transparent 45%);
+  pointer-events: none;
+}
+
+/* Subtle gold left border */
+.komp-techno::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(to bottom, transparent, var(--gold), transparent);
+  opacity: 0.6;
+}
+
+/* ── Card content ── */
+.komp-body {
+  position: relative;
+  z-index: 1;
+  padding: 36px 44px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.komp-label {
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 2.5px;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-bottom: 16px;
+  opacity: 0.9;
+}
+
+.komp-title {
+  font-family: var(--font-heading);
+  font-size: 28px;
+  font-weight: 900;
+  color: var(--white);
+  margin: 0 0 20px;
+  line-height: 1.18;
+}
+
+.komp-main .komp-title {
+  font-size: 36px;
+}
+
+.komp-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+}
+
+.komp-list li {
+  font-family: var(--font-body);
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.75);
+  padding-left: 22px;
+  position: relative;
+  transition: color .25s;
+}
+
+.komp-list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--gold);
+  opacity: 0.8;
+}
+
+.komp-card:hover .komp-list li {
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.komp-card:hover .komp-list li::before {
+  opacity: 1;
+}
+
+/* =========================================================
+   SLIDE 3: TRM DALAM ANGKA
    ========================================================= */
 .angka-inner {
   display: flex;
@@ -738,9 +890,27 @@ strong { font-weight: 700; }
   align-items: center;
 }
 
-.sejarah-img {
+.sejarah-visual {
+  position: relative;
   height: 520px;
   width: 100%;
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: var(--gray-100);
+}
+
+.sej-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity .45s ease;
+}
+
+.sej-img.sej-img-active {
+  opacity: 1;
 }
 
 .sejarah-text {
@@ -764,7 +934,7 @@ strong { font-weight: 700; }
 .timeline::before {
   content: '';
   position: absolute;
-  left: 38px;
+  left: 72px;
   top: 0;
   bottom: 0;
   width: 1px;
@@ -775,21 +945,24 @@ strong { font-weight: 700; }
   display: flex;
   gap: 20px;
   align-items: flex-start;
-  padding: 20px 0;
+  padding: 22px 0;
   position: relative;
+  cursor: default;
+  transition: background .2s;
 }
 
 .tl-item::after {
   content: '';
   position: absolute;
-  left: 32px;
-  top: 26px;
+  left: 66px;
+  top: 28px;
   width: 13px;
   height: 13px;
   border-radius: 50%;
   background: var(--gray-200);
   border: 2px solid var(--off-white);
   z-index: 1;
+  transition: background .25s, box-shadow .25s;
 }
 
 .tl-highlight::after {
@@ -797,18 +970,25 @@ strong { font-weight: 700; }
   box-shadow: 0 0 12px rgba(188,150,1,0.4);
 }
 
+.tl-item:hover::after {
+  background: var(--gold);
+  box-shadow: 0 0 10px rgba(188,150,1,0.5);
+}
+
 .tl-year {
   font-family: var(--font-heading);
-  font-size: 13px;
+  font-size: 15px;
   font-weight: 900;
   color: var(--gray-400);
   width: 56px;
   flex-shrink: 0;
   padding-top: 2px;
   text-align: center;
+  transition: color .25s;
 }
 
 .tl-highlight .tl-year { color: var(--gold); }
+.tl-item:hover .tl-year { color: var(--gold); }
 
 .tl-content {
   flex: 1;
@@ -817,19 +997,24 @@ strong { font-weight: 700; }
 
 .tl-content h4 {
   font-family: var(--font-heading);
-  font-size: 15px;
+  font-size: 17px;
   font-weight: 700;
   color: var(--gray-800);
-  margin-bottom: 4px;
+  margin-bottom: 6px;
+  transition: color .25s;
 }
 
 .tl-highlight .tl-content h4 { color: var(--gold-muted); }
+.tl-item:hover .tl-content h4 { color: var(--gold-muted); }
 
 .tl-content p {
-  font-size: 13px;
+  font-size: 14.5px;
   color: var(--gray-600);
-  line-height: 1.6;
+  line-height: 1.65;
+  transition: color .25s;
 }
+
+.tl-item:hover .tl-content p { color: var(--gray-800); }
 
 /* =========================================================
    SLIDE 3: VISI & MISI
@@ -844,51 +1029,54 @@ strong { font-weight: 700; }
   max-width: none;
 }
 
-.visi-box {
-  background: rgba(188,150,1,0.08);
-  border: 1px solid rgba(188,150,1,0.3);
-  border-radius: var(--radius);
-  padding: 28px 32px;
+.visi-wrap {
   margin-bottom: 32px;
 }
 
 .visi-label {
-  font-size: 10px;
+  font-family: var(--font-body);
+  font-size: 11px;
   font-weight: 700;
-  letter-spacing: 2px;
+  letter-spacing: 2.5px;
   text-transform: uppercase;
   color: var(--gold);
-  margin-bottom: 12px;
+  margin-bottom: 20px;
+  opacity: 0.9;
 }
 
 .visi-text {
-  font-size: 16px;
-  color: rgba(255,255,255,0.8);
-  line-height: 1.75;
+  font-family: var(--font-heading);
+  font-size: 32px;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.92);
+  line-height: 1.58;
 }
 
-.visi-text strong { color: var(--gold); }
+.visi-text strong {
+  color: var(--gold);
+  font-weight: 900;
+}
 
 .visi-img {
-  height: 240px;
+  height: 200px;
   width: 100%;
 }
 
 .misi-heading {
   font-family: var(--font-heading);
-  font-size: 20px;
+  font-size: 11px;
   font-weight: 700;
-  color: rgba(255,255,255,0.5);
+  color: rgba(255,255,255,0.4);
   text-transform: uppercase;
-  letter-spacing: 2px;
-  margin-bottom: 28px;
+  letter-spacing: 2.5px;
+  margin-bottom: 32px;
 }
 
 .misi-list {
   list-style: none;
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 28px;
 }
 
 .misi-list li {
@@ -899,19 +1087,19 @@ strong { font-weight: 700; }
 
 .misi-num {
   font-family: var(--font-heading);
-  font-size: 32px;
+  font-size: 36px;
   font-weight: 900;
-  color: rgba(188,150,1,0.25);
+  color: rgba(188,150,1,0.22);
   line-height: 1;
   flex-shrink: 0;
-  width: 44px;
+  width: 48px;
 }
 
 .misi-list p {
-  font-size: 15px;
+  font-size: 17px;
   color: rgba(255,255,255,0.65);
-  line-height: 1.7;
-  padding-top: 4px;
+  line-height: 1.72;
+  padding-top: 6px;
 }
 
 .misi-list strong { color: rgba(255,255,255,0.9); }
