@@ -42,6 +42,10 @@
         <span class="nav-dot"></span>
         <span class="nav-label">Profil Lulusan</span>
       </a>
+      <a href="#alumni"    class="nav-item" data-section="alumni">
+        <span class="nav-dot"></span>
+        <span class="nav-label">Alumni</span>
+      </a>
       <a href="#plo"       class="nav-item" data-section="plo">
         <span class="nav-dot"></span>
         <span class="nav-label">Capaian Pembelajaran</span>
@@ -402,7 +406,23 @@
       </div>
     </section>
 
-    <!-- ===== SLIDE 7: PLO / CAPAIAN PEMBELAJARAN ===== -->
+    <!-- ===== SLIDE 7: ALUMNI & TRACER STUDY ===== -->
+    <!-- Konten dirender dari data/tracer_study.json -->
+    <section id="alumni" class="slide slide-light">
+      <div class="slide-inner alumni-inner">
+        <div class="alumni-header">
+          <span class="section-tag" id="alumni-tag">Tracer Study</span>
+          <h2 class="section-title">Alumni <span class="gold">TRM</span></h2>
+          <p class="alumni-desc" id="alumni-desc">Memuat data&hellip;</p>
+        </div>
+        <div class="ts-tabs" id="ts-tabs"></div>
+        <div class="ts-content" id="ts-content">
+          <p class="ts-loading">Memuat data tracer study&hellip;</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SLIDE 8: PLO / CAPAIAN PEMBELAJARAN ===== -->
     <section id="plo" class="slide slide-dark">
       <div class="slide-inner plo-inner">
         <div class="plo-header">
@@ -661,6 +681,219 @@
     });
 
     document.querySelector('.timeline').addEventListener('mouseleave', () => showSejImg('2015'));
+
+    // ── Alumni Tracer Study — render dari data/tracer_study.json ──
+    (function () {
+      const TS_C = 2 * Math.PI * 75;
+
+      function fmtPct(n) {
+        return n.toString().replace('.', ',') + '%';
+      }
+
+      function fmtRupiah(n) {
+        return 'Rp' + n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+      }
+
+      function donutSvg(id, centerNum, centerLabel) {
+        return `<svg class="ts-donut-svg" id="${id}" viewBox="0 0 200 200">
+          <text x="100" y="93" class="donut-center-num">${centerNum}</text>
+          <text x="100" y="113" class="donut-center-label">${centerLabel}</text>
+        </svg>`;
+      }
+
+      function legendHorizHtml(items) {
+        return '<div class="ts-legend-horiz">' +
+          items.map(it =>
+            `<div class="ts-lh-item">
+              <span class="ts-legend-dot" style="background:${it.warna}"></span>
+              <span>${it.label} ${fmtPct(it.pct)}</span>
+            </div>`
+          ).join('') + '</div>';
+      }
+
+      function hbarsHtml(items) {
+        return '<div class="ts-hbars">' +
+          items.map(it =>
+            `<div class="ts-hbar-item">
+              <span class="ts-hbar-label">${it.label}</span>
+              <div class="ts-hbar-track">
+                <div class="ts-hbar-fill" style="--w:${it.pct}%;background:${it.warna};"></div>
+              </div>
+              <span class="ts-hbar-pct">${fmtPct(it.pct)}</span>
+            </div>`
+          ).join('') + '</div>';
+      }
+
+      function donutCol(id, title, items) {
+        const first = items[0];
+        return `<div class="ts-chart-col">
+          <h4 class="ts-chart-title">${title}</h4>
+          <div class="ts-donut-wrap">${donutSvg(id, fmtPct(first.pct), first.label)}</div>
+          ${legendHorizHtml(items)}
+        </div>`;
+      }
+
+      function buildPanel1(d) {
+        const first = d.data[0];
+        const wtStr = d.waktu_tunggu_bulan.toString().replace('.', ',');
+        return `<div class="ts-kondisi-layout">
+          <div class="ts-donut-wrap">
+            ${donutSvg('donut-kondisi', fmtPct(first.pct), first.label)}
+          </div>
+          <div class="ts-legend-wrap">
+            ${d.data.map(it => `
+              <div class="ts-legend-item">
+                <span class="ts-legend-dot" style="background:${it.warna}"></span>
+                <span class="ts-legend-pct">${fmtPct(it.pct)}</span>
+                <span class="ts-legend-lbl">${it.label}</span>
+              </div>`).join('')}
+          </div>
+          <div class="ts-highlight-card">
+            <span class="ts-hl-num">${wtStr}</span>
+            <span class="ts-hl-unit">bulan</span>
+            <span class="ts-hl-label">Rata-rata Waktu Tunggu Lulusan</span>
+          </div>
+        </div>`;
+      }
+
+      function buildPanel2(d) {
+        return `<div class="ts-two-col-layout">
+          ${donutCol('donut-kategori', 'Kategori Perusahaan', d.kategori)}
+          <div class="ts-divider-v"></div>
+          ${donutCol('donut-jenis', 'Jenis Perusahaan', d.jenis)}
+        </div>`;
+      }
+
+      function buildPanel3(d) {
+        return `<div class="ts-two-col-layout" style="align-items:start;">
+          <div class="ts-bar-col">
+            <h4 class="ts-chart-title">Keeratan Pekerjaan dengan Program Studi</h4>
+            ${hbarsHtml(d.keeratan)}
+          </div>
+          <div class="ts-divider-v"></div>
+          <div class="ts-bar-col">
+            <h4 class="ts-chart-title">Kesesuaian Pekerjaan dengan Tingkat Pendidikan</h4>
+            ${hbarsHtml(d.kesesuaian_pendidikan.data)}
+            <p class="ts-note">${d.kesesuaian_pendidikan.catatan}</p>
+          </div>
+        </div>`;
+      }
+
+      function buildPanel4(d) {
+        return `<div class="ts-two-col-layout">
+          <div class="ts-salary-wrap">
+            <span class="ts-sal-label">Rata-rata Pendapatan</span>
+            <span class="ts-sal-num">${fmtRupiah(d.pendapatan_rata_rata)}</span>
+            <span class="ts-sal-sub">${d.keterangan}</span>
+          </div>
+          <div class="ts-divider-v"></div>
+          ${donutCol('donut-posisi', 'Posisi Kerja', d.posisi)}
+        </div>`;
+      }
+
+      function drawDonut(svgId, items) {
+        const svg = document.getElementById(svgId);
+        if (!svg) return;
+        svg.querySelectorAll('.ts-seg').forEach(el => el.remove());
+        const firstText = svg.querySelector('text');
+
+        const bg = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+        [['cx',100],['cy',100],['r',75],['fill','none'],['stroke','#ede9d8'],['stroke-width',26]]
+          .forEach(([k,v]) => bg.setAttribute(k, v));
+        bg.classList.add('ts-seg');
+        svg.insertBefore(bg, firstText);
+
+        let cum = 0;
+        items.forEach(item => {
+          const len = (item.pct / 100) * TS_C;
+          const c = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+          [['cx',100],['cy',100],['r',75],['fill','none'],['stroke',item.warna],
+           ['stroke-width',26],['stroke-linecap','butt'],
+           ['stroke-dasharray',`0 ${TS_C}`],['stroke-dashoffset',`${-cum}`],
+           ['transform','rotate(-90 100 100)']]
+            .forEach(([k,v]) => c.setAttribute(k, v));
+          c.classList.add('ts-seg');
+          c.style.transition = 'stroke-dasharray .75s cubic-bezier(.4,0,.2,1)';
+          svg.insertBefore(c, firstText);
+          cum += len;
+          requestAnimationFrame(() => requestAnimationFrame(() =>
+            c.setAttribute('stroke-dasharray', `${len} ${TS_C - len}`)
+          ));
+        });
+      }
+
+      function animateBars(panel) {
+        panel.querySelectorAll('.ts-hbar-fill').forEach(bar => {
+          bar.classList.remove('ts-animated');
+          requestAnimationFrame(() => requestAnimationFrame(() =>
+            bar.classList.add('ts-animated')
+          ));
+        });
+      }
+
+      function activatePanel(panelId, donutMap) {
+        const panel = document.getElementById(panelId);
+        if (!panel) return;
+        panel.querySelectorAll('.ts-donut-svg').forEach(svg => {
+          if (donutMap[svg.id]) drawDonut(svg.id, donutMap[svg.id]);
+        });
+        animateBars(panel);
+      }
+
+      function initAlumni(d) {
+        const m = d.meta;
+        document.getElementById('alumni-tag').textContent = `Tracer Study ${m.tahun}`;
+        document.getElementById('alumni-desc').innerHTML =
+          `Kondisi Lulusan ${m.kondisi_lulusan_tahun} &middot; ${m.prodi} <strong>(N=${m.n})</strong>`;
+
+        const tabs = [
+          { id: 'ts-kondisi',    label: 'Kondisi Lulusan' },
+          { id: 'ts-perusahaan', label: 'Jenis Perusahaan' },
+          { id: 'ts-kesesuaian', label: 'Kesesuaian Karir' },
+          { id: 'ts-pendapatan', label: 'Pendapatan & Posisi' },
+        ];
+        document.getElementById('ts-tabs').innerHTML = tabs.map((t, i) =>
+          `<button class="ts-tab${i === 0 ? ' active' : ''}" data-tab="${t.id}">${t.label}</button>`
+        ).join('');
+
+        const panels = [
+          { id: 'ts-kondisi',    html: buildPanel1(d.kondisi_lulusan) },
+          { id: 'ts-perusahaan', html: buildPanel2(d.jenis_perusahaan) },
+          { id: 'ts-kesesuaian', html: buildPanel3(d.kesesuaian_karir) },
+          { id: 'ts-pendapatan', html: buildPanel4(d.pendapatan_posisi) },
+        ];
+        document.getElementById('ts-content').innerHTML = panels.map((p, i) =>
+          `<div class="ts-panel${i === 0 ? ' active' : ''}" id="${p.id}">${p.html}</div>`
+        ).join('');
+
+        const donutMap = {
+          'donut-kondisi':  d.kondisi_lulusan.data,
+          'donut-kategori': d.jenis_perusahaan.kategori,
+          'donut-jenis':    d.jenis_perusahaan.jenis,
+          'donut-posisi':   d.pendapatan_posisi.posisi,
+        };
+
+        document.getElementById('ts-tabs').querySelectorAll('.ts-tab').forEach(tab => {
+          tab.addEventListener('click', () => {
+            document.querySelectorAll('.ts-tab').forEach(t => t.classList.remove('active'));
+            document.querySelectorAll('.ts-panel').forEach(p => p.classList.remove('active'));
+            tab.classList.add('active');
+            document.getElementById(tab.dataset.tab).classList.add('active');
+            activatePanel(tab.dataset.tab, donutMap);
+          });
+        });
+
+        activatePanel('ts-kondisi', donutMap);
+      }
+
+      fetch('data/tracer_study.json')
+        .then(r => r.json())
+        .then(initAlumni)
+        .catch(() => {
+          document.getElementById('ts-content').innerHTML =
+            '<p class="ts-loading">Gagal memuat data. Pastikan file <code>data/tracer_study.json</code> tersedia dan halaman dibuka melalui server (bukan file://).</p>';
+        });
+    })();
   </script>
 
 </body>

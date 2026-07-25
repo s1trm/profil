@@ -1,0 +1,58 @@
+{
+  "meta": {
+    "sumber": "Tracer Study 2025",
+    "kondisi_lulusan_tahun": 2024,
+    "prodi": "D4 Teknologi Rekayasa Multimedia",
+    "n": 52
+  },
+
+  "kondisi_lulusan": {
+    "waktu_tunggu_bulan": 2.07,
+    "data": [
+      { "label": "Bekerja",                    "pct": 78.85, "warna": "#bc9601" },
+      { "label": "Masih Mencari Pekerjaan",    "pct": 13.46, "warna": "#d4722a" },
+      { "label": "Berwirausaha",               "pct":  3.85, "warna": "#5a9e52" },
+      { "label": "Melanjutkan Pendidikan",     "pct":  1.92, "warna": "#3b7abf" },
+      { "label": "Belum Memungkinkan Bekerja", "pct":  1.92, "warna": "#b8b8b8" }
+    ]
+  },
+
+  "jenis_perusahaan": {
+    "kategori": [
+      { "label": "Nasional",      "pct": 53.66, "warna": "#bc9601" },
+      { "label": "Lokal",         "pct": 26.83, "warna": "#3b7abf" },
+      { "label": "Multinasional", "pct": 19.51, "warna": "#5a9e52" }
+    ],
+    "jenis": [
+      { "label": "Swasta",  "pct": 80.49, "warna": "#bc9601" },
+      { "label": "Lainnya", "pct": 19.51, "warna": "#b8b8b8" }
+    ]
+  },
+
+  "kesesuaian_karir": {
+    "keeratan": [
+      { "label": "Erat",        "pct": 48.78, "warna": "#bc9601" },
+      { "label": "Cukup Erat",  "pct": 31.71, "warna": "#d4a017" },
+      { "label": "Sangat Erat", "pct":  9.76, "warna": "#5a9e52" },
+      { "label": "Kurang Erat", "pct":  9.76, "warna": "#d4722a" },
+      { "label": "Tidak Erat",  "pct":  0.00, "warna": "#b8b8b8" }
+    ],
+    "kesesuaian_pendidikan": {
+      "catatan": "97,56% lulusan bekerja di posisi yang sesuai dengan jenjang pendidikan D4 — tertinggi di FIT.",
+      "data": [
+        { "label": "Sesuai (Sama)", "pct": 97.56, "warna": "#bc9601" },
+        { "label": "Lebih Tinggi",  "pct":  2.44, "warna": "#5a9e52" },
+        { "label": "Lebih Rendah",  "pct":  0.00, "warna": "#b8b8b8" }
+      ]
+    }
+  },
+
+  "pendapatan_posisi": {
+    "pendapatan_rata_rata": 5037000,
+    "keterangan": "per bulan · Lulusan D4 TRM 2024",
+    "posisi": [
+      { "label": "Staf",    "pct": 85.37, "warna": "#bc9601" },
+      { "label": "Lainnya", "pct": 14.63, "warna": "#b8b8b8" }
+    ]
+  }
+}
