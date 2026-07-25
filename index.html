@@ -22,6 +22,10 @@
         <span class="nav-dot"></span>
         <span class="nav-label">Beranda</span>
       </a>
+      <a href="#angka"     class="nav-item" data-section="angka">
+        <span class="nav-dot"></span>
+        <span class="nav-label">TRM dalam Angka</span>
+      </a>
       <a href="#sejarah"   class="nav-item" data-section="sejarah">
         <span class="nav-dot"></span>
         <span class="nav-label">Sejarah</span>
@@ -120,7 +124,62 @@
       <div class="hero-scroll-hint">scroll</div>
     </section>
 
-    <!-- ===== SLIDE 2: SEJARAH ===== -->
+    <!-- ===== SLIDE 2: TRM DALAM ANGKA ===== -->
+    <section id="angka" class="slide slide-dark">
+      <div class="slide-inner angka-inner">
+        <div class="angka-header">
+          <span class="section-tag tag-dark">Statistik</span>
+          <h2 class="section-title light"><span class="gold">TRM</span> dalam Angka</h2>
+        </div>
+        <div class="angka-grid">
+
+          <!-- Baris 1: angka besar utama -->
+          <div class="angka-card angka-xl">
+            <span class="angka-num" data-target="1349" data-format="dot">1.349</span>
+            <span class="angka-label">Total Mahasiswa &amp; Alumni</span>
+          </div>
+          <div class="angka-card angka-xl">
+            <span class="angka-num" data-target="600">600<span class="angka-plus">+</span></span>
+            <span class="angka-label">Mahasiswa Aktif</span>
+          </div>
+          <div class="angka-card angka-xl">
+            <span class="angka-num" data-target="531">531</span>
+            <span class="angka-label">Alumni</span>
+          </div>
+
+          <!-- Baris 2: angka sekunder -->
+          <div class="angka-card">
+            <span class="angka-num" data-target="10">10</span>
+            <span class="angka-label">Angkatan</span>
+          </div>
+          <div class="angka-card">
+            <span class="angka-num" data-target="21">21</span>
+            <span class="angka-label">Dosen</span>
+          </div>
+          <div class="angka-card angka-accent">
+            <span class="angka-num" data-target="1">1</span>
+            <span class="angka-label">Guru Besar</span>
+          </div>
+          <div class="angka-card">
+            <div class="angka-split">
+              <div class="angka-split-item">
+                <span class="angka-num" data-target="7">7</span>
+                <span class="angka-sublabel">Doktor</span>
+              </div>
+              <div class="angka-split-sep">+</div>
+              <div class="angka-split-item">
+                <span class="angka-num" data-target="4">4</span>
+                <span class="angka-sublabel">Kandidat</span>
+              </div>
+            </div>
+            <span class="angka-label">Doktor &amp; Kandidat Doktor</span>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SLIDE 3: SEJARAH ===== -->
     <section id="sejarah" class="slide slide-light">
       <div class="slide-inner sejarah-inner">
         <div class="sejarah-visual">
@@ -468,6 +527,43 @@
         e.preventDefault();
         const target = document.querySelector(item.getAttribute('href'));
         if (target) target.scrollIntoView({ behavior: 'smooth' });
+      });
+    });
+
+    // Count-up animation on hover
+    function easeOutCubic(t) { return 1 - Math.pow(1 - t, 3); }
+
+    function animateCount(el) {
+      const target = parseInt(el.dataset.target, 10);
+      const useDot = el.dataset.format === 'dot';
+      const duration = 700;
+      const startTime = performance.now();
+
+      // Only animate the first text node, leaving child spans (e.g. "+") intact
+      let textNode = null;
+      for (const node of el.childNodes) {
+        if (node.nodeType === Node.TEXT_NODE && node.nodeValue.trim() !== '') {
+          textNode = node;
+          break;
+        }
+      }
+      if (!textNode) return;
+
+      function tick(now) {
+        const progress = Math.min((now - startTime) / duration, 1);
+        const current = Math.round(easeOutCubic(progress) * target);
+        textNode.nodeValue = useDot
+          ? current.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.')
+          : current.toString();
+        if (progress < 1) requestAnimationFrame(tick);
+      }
+
+      requestAnimationFrame(tick);
+    }
+
+    document.querySelectorAll('.angka-card').forEach(card => {
+      card.addEventListener('mouseenter', () => {
+        card.querySelectorAll('.angka-num[data-target]').forEach(animateCount);
       });
     });
   </script>
