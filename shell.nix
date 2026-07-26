@@ -5,7 +5,7 @@ pkgs.mkShell {
 
   packages = with pkgs; [
     # Static file server untuk preview
-    nodePackages.live-server
+    pkgs.live-server
 
     # Alternatif server sederhana
     python3
@@ -15,7 +15,7 @@ pkgs.mkShell {
     imagemagick
 
     # Editor & tools
-    nodePackages.prettier
+    pkgs.prettier
   ];
 
   shellHook = ''
