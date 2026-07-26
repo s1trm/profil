@@ -38,10 +38,14 @@
         <span class="nav-dot"></span>
         <span class="nav-label">Visi &amp; Misi</span>
       </a>
-      <!-- <a href="#lulusan"   class="nav-item" data-section="lulusan"> -->
-        <!-- <span class="nav-dot"></span> -->
-        <!-- <span class="nav-label">Profil Lulusan</span> -->
-      <!-- </a> -->
+      <a href="#lulusan"   class="nav-item" data-section="lulusan">
+        <span class="nav-dot"></span>
+        <span class="nav-label">Profil Lulusan</span>
+      </a>
+      <a href="#kurikulum" class="nav-item" data-section="kurikulum">
+        <span class="nav-dot"></span>
+        <span class="nav-label">Kurikulum</span>
+      </a>
       <a href="#alumni"    class="nav-item" data-section="alumni">
         <span class="nav-dot"></span>
         <span class="nav-label">Alumni</span>
@@ -54,6 +58,10 @@
         <span class="nav-dot"></span>
         <span class="nav-label">Tracer Study</span>
       </a>
+      <a href="#beasiswa"  class="nav-item" data-section="beasiswa">
+        <span class="nav-dot"></span>
+        <span class="nav-label">Beasiswa</span>
+      </a>
       <a href="#plo"       class="nav-item" data-section="plo">
         <span class="nav-dot"></span>
         <span class="nav-label">Capaian Pembelajaran</span>
@@ -62,15 +70,19 @@
         <span class="nav-dot"></span>
         <span class="nav-label">Prestasi</span>
       </a>
+      <a href="#expo"      class="nav-item" data-section="expo">
+        <span class="nav-dot"></span>
+        <span class="nav-label">Expo TRM</span>
+      </a>
       <a href="#kontak"    class="nav-item" data-section="kontak">
         <span class="nav-dot"></span>
         <span class="nav-label">Kontak</span>
       </a>
     </nav>
 
-    <div class="sidebar-footer">
-      <p class="sidebar-footer-text">Fakultas Ilmu Terapan<br />Universitas Telkom</p>
-    </div>
+    <!-- <div class="sidebar-footer"> -->
+      <!-- <p class="sidebar-footer-text">Fakultas Ilmu Terapan<br />Universitas Telkom</p> -->
+    <!-- </div> -->
   </aside>
 
   <!-- ============ MAIN CONTENT ============ -->
@@ -201,7 +213,8 @@
         </div>
 
         <!-- Panel 3: Technopreneur -->
-        <div class="komp-card komp-techno">
+        <div class="komp-card komp-techno" style="background-image: url('gambar/startup.png'); background-position: center center;">
+          <div class="komp-overlay"></div>
           <div class="komp-techno-bg"></div>
           <div class="komp-body">
             <div class="komp-label">03 — Technopreneurship</div>
@@ -361,71 +374,363 @@
     </section>
 
     <!-- ===== SLIDE 6: PROFIL LULUSAN ===== -->
-    <!-- <section id="lulusan" class="slide slide-light"> -->
-      <!-- <div class="slide-inner lulusan-inner"> -->
-        <!-- <div class="lulusan-header"> -->
-          <!-- <span class="section-tag">Lulusan Kami</span> -->
-          <!-- <h2 class="section-title">Profil &amp; Prospek<br /><span class="gold">Lulusan</span></h2> -->
-        <!-- </div> -->
-
-        <!-- <div class="lulusan-profil-grid"> -->
-          <!-- <div class="img-placeholder lulusan-img"> -->
-            <!-- <div class="ph-label">Foto Wisudawan / Mahasiswa TRM</div> -->
-          <!-- </div> -->
-          <!-- <div class="profil-cards"> -->
-            <!-- <div class="profil-card"> -->
-              <!-- <span class="profil-icon">&#128187;</span> -->
-              <!-- <h4>Profesional Teknologi Multimedia</h4> -->
-              <!-- <p>Kompeten dalam TIK dengan spesialisasi aplikasi multimedia interaktif; menguasai AR, VR, AI, sensor, dan jiwa kewirausahaan.</p> -->
-            <!-- </div> -->
-            <!-- <div class="profil-card"> -->
-              <!-- <span class="profil-icon">&#129309;</span> -->
-              <!-- <h4>Kolaboratif &amp; Berintegritas</h4> -->
-              <!-- <p>Profesional mandiri maupun kolaboratif, menjunjung etika kerja, tanggung jawab sosial, dan membangun jaringan profesional.</p> -->
-            <!-- </div> -->
-            <!-- <div class="profil-card"> -->
-              <!-- <span class="profil-icon">&#128200;</span> -->
-              <!-- <h4>Adaptif &amp; Progresif</h4> -->
-              <!-- <p>Berpikir kritis, sistematis, ilmiah; berkomitmen pada pembelajaran berkelanjutan dan evaluasi objektif.</p> -->
-            <!-- </div> -->
-          <!-- </div> -->
-        <!-- </div> -->
-
-        <!-- <div class="profesi-section"> -->
-          <!-- <h3 class="profesi-title">3 Profesi Utama Lulusan</h3> -->
-          <!-- <div class="profesi-grid"> -->
-            <!-- <div class="profesi-card"> -->
-              <!-- <div class="profesi-num">01</div> -->
-              <!-- <h4>Pengembang Aplikasi Multimedia Interaktif</h4> -->
-              <!-- <p>AR/VR/MR, game, simulator, AI, IoT — multi-platform: desktop, mobile, web.</p> -->
-            <!-- </div> -->
-            <!-- <div class="profesi-card"> -->
-              <!-- <div class="profesi-num">02</div> -->
-              <!-- <h4>Kreator Konten Multimedia Digital</h4> -->
-              <!-- <p>Video streamer, konten sosmed, produser video, animator, desainer grafis, penulis skrip, manajer konten.</p> -->
-            <!-- </div> -->
-            <!-- <div class="profesi-card"> -->
-              <!-- <div class="profesi-num">03</div> -->
-              <!-- <h4>Wirausaha Teknologi Multimedia (Technopreneur)</h4> -->
-              <!-- <p>Bisnis software, desain multimedia, konten digital — mengintegrasikan teknologi dengan kewirausahaan inovatif.</p> -->
-            <!-- </div> -->
-          <!-- </div> -->
-        <!-- </div> -->
-      <!-- </div> -->
-    <!-- </section> -->
-
-    <!-- ===== SLIDE 7: ALUMNI & TRACER STUDY ===== -->
-    <!-- Konten dirender dari data/tracer_study.json -->
-    <section id="alumni" class="slide slide-light">
-      <div class="slide-inner alumni-inner">
-        <div class="alumni-header">
-          <span class="section-tag" id="alumni-tag">Tracer Study</span>
-          <h2 class="section-title">Alumni <span class="gold">TRM</span></h2>
-          <p class="alumni-desc" id="alumni-desc">Memuat data&hellip;</p>
+    <section id="lulusan" class="slide slide-light">
+      <div class="slide-inner lulusan-inner">
+        <div class="lulusan-header">
+          <span class="section-tag">Lulusan Kami</span>
+          <h2 class="section-title">Profil &amp; Prospek<br /><span class="gold">Lulusan</span></h2>
         </div>
-        <div class="ts-tabs" id="ts-tabs"></div>
-        <div class="ts-content" id="ts-content">
-          <p class="ts-loading">Memuat data tracer study&hellip;</p>
+
+        <div class="lulusan-profil-grid">
+          <img src="gambar/wisuda.jpg" alt="Wisudawan TRM" class="lulusan-img-photo" />
+          <div class="profil-cards">
+            <div class="profil-card">
+              <span class="profil-icon">&#128187;</span>
+              <h4>Profesional Teknologi Multimedia</h4>
+              <p>Kompeten dalam TIK dengan spesialisasi aplikasi multimedia interaktif; menguasai AR, VR, AI, sensor, dan jiwa kewirausahaan.</p>
+            </div>
+            <div class="profil-card">
+              <span class="profil-icon">&#129309;</span>
+              <h4>Kolaboratif &amp; Berintegritas</h4>
+              <p>Profesional mandiri maupun kolaboratif, menjunjung etika kerja, tanggung jawab sosial, dan membangun jaringan profesional.</p>
+            </div>
+            <div class="profil-card">
+              <span class="profil-icon">&#128200;</span>
+              <h4>Adaptif &amp; Progresif</h4>
+              <p>Berpikir kritis, sistematis, ilmiah; berkomitmen pada pembelajaran berkelanjutan dan evaluasi objektif.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="profesi-section">
+          <h3 class="profesi-title">3 Profesi Utama Lulusan</h3>
+          <div class="profesi-grid">
+            <div class="profesi-card">
+              <div class="profesi-num">01</div>
+              <h4>Pengembang Aplikasi Multimedia Interaktif</h4>
+              <p>AR/VR/MR, game, simulator, AI, IoT — multi-platform: desktop, mobile, web.</p>
+            </div>
+            <div class="profesi-card">
+              <div class="profesi-num">02</div>
+              <h4>Kreator Konten Multimedia Digital</h4>
+              <p>Video streamer, konten sosmed, produser video, animator, desainer grafis, penulis skrip, manajer konten.</p>
+            </div>
+            <div class="profesi-card">
+              <div class="profesi-num">03</div>
+              <h4>Wirausaha Teknologi Multimedia (Technopreneur)</h4>
+              <p>Bisnis software, desain multimedia, konten digital — mengintegrasikan teknologi dengan kewirausahaan inovatif.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SLIDE: KURIKULUM ===== -->
+    <section id="kurikulum" class="slide slide-light">
+      <div class="slide-inner kk-inner">
+        <div class="kk-header">
+          <span class="section-tag">Program Studi</span>
+          <h2 class="section-title">Kurikulum <span class="gold">TRM</span></h2>
+        </div>
+
+        <div class="kk-overview">
+          <div class="kk-stats-row">
+            <div class="kk-stat-main">
+              <span class="kk-stat-num">51</span>
+              <span class="kk-stat-lbl">Mata Kuliah</span>
+            </div>
+            <div class="kk-stat-sep"></div>
+            <div class="kk-stat-main">
+              <span class="kk-stat-num">144</span>
+              <span class="kk-stat-lbl">SKS</span>
+            </div>
+            <div class="kk-cats">
+              <div class="kk-cat kk-cat-mkwk">
+                <span class="kk-cat-n">4</span>
+                <span class="kk-cat-code">MKWK</span>
+                <span class="kk-cat-name">Wajib Kurikulum</span>
+              </div>
+              <div class="kk-cat kk-cat-mkwu">
+                <span class="kk-cat-n">4</span>
+                <span class="kk-cat-code">MKWU</span>
+                <span class="kk-cat-name">Wajib Universitas</span>
+              </div>
+              <div class="kk-cat kk-cat-mkwf">
+                <span class="kk-cat-n">5</span>
+                <span class="kk-cat-code">MKWF</span>
+                <span class="kk-cat-name">Wajib Fakultas</span>
+              </div>
+              <div class="kk-cat kk-cat-mkwp">
+                <span class="kk-cat-n">38</span>
+                <span class="kk-cat-code">MKWP</span>
+                <span class="kk-cat-name">Wajib Prodi</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="kk-tabs">
+          <button class="kk-tab active" data-tab="kk-t1">Tahun 1</button>
+          <button class="kk-tab" data-tab="kk-t2">Tahun 2</button>
+          <button class="kk-tab" data-tab="kk-t3">Tahun 3</button>
+          <button class="kk-tab" data-tab="kk-t4">Tahun 4</button>
+        </div>
+
+        <div class="kk-content">
+
+          <!-- Tahun 1 -->
+          <div class="kk-panel active" id="kk-t1">
+            <div class="kk-yr-label">Tingkat 1 — Mata Kuliah Dasar</div>
+            <div class="kk-cards">
+              <div class="kk-card">
+                <div class="kk-card-name">Konten Digital 2D</div>
+                <div class="kk-tools">
+                  <span class="kk-tool" title="Photoshop"><img src="gambar/logo_photoshop.png" alt="Photoshop" /></span>
+                  <span class="kk-tool" title="Canva"><img src="gambar/logo_canva.png" alt="Canva" /></span>
+                  <span class="kk-tool" title="Adobe Illustrator"><img src="gambar/logo_adobe_illustrator.png" alt="Adobe Illustrator" /></span>
+                </div>
+              </div>
+              <div class="kk-card">
+                <div class="kk-card-name">Algoritma &amp; Pemrograman</div>
+                <div class="kk-tools">
+                  <span class="kk-tool" title="Visual Studio Code"><img src="gambar/logo_vscode.png" alt="VS Code" /></span>
+                  <span class="kk-tool" title="Python"><img src="gambar/logo_python.png" alt="Python" /></span>
+                </div>
+              </div>
+              <div class="kk-card">
+                <div class="kk-card-name">Konten Digital 3D</div>
+                <div class="kk-tools">
+                  <span class="kk-tool" title="Blender"><img src="gambar/logo_blender.png" alt="Blender" /></span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Tahun 2 -->
+          <div class="kk-panel" id="kk-t2">
+            <div class="kk-yr-label">Tingkat 2 — Mata Kuliah Utama</div>
+            <div class="kk-cards">
+              <div class="kk-card">
+                <div class="kk-card-name">Desain Antarmuka Pengguna</div>
+                <div class="kk-tools">
+                  <span class="kk-tool" title="Figma"><img src="gambar/logo_figma.png" alt="Figma" /></span>
+                </div>
+              </div>
+              <div class="kk-card">
+                <div class="kk-card-name">Pemrograman Berorientasi Objek</div>
+                <div class="kk-tools">
+                  <span class="kk-tool" title="C#"><img src="gambar/logo_csharp.png" alt="C#" /></span>
+                </div>
+              </div>
+              <div class="kk-card">
+                <div class="kk-card-name">Pemrograman Web</div>
+                <div class="kk-tools">
+                  <span class="kk-tool" title="PHP"><img src="gambar/logo_php.png" alt="PHP" /></span>
+                  <span class="kk-tool" title="HTML"><img src="gambar/logo_html.png" alt="HTML" /></span>
+                  <span class="kk-tool" title="MySQL"><img src="gambar/logo_mysql.png" alt="MySQL" /></span>
+                </div>
+              </div>
+              <div class="kk-card">
+                <div class="kk-card-name">Pemrograman Simulator</div>
+                <div class="kk-tools">
+                  <span class="kk-tool" title="Arduino"><img src="gambar/logo_arduino.png" alt="Arduino" /></span>
+                </div>
+              </div>
+              <div class="kk-card">
+                <div class="kk-card-name">Pemrograman Multimedia Interaktif</div>
+                <div class="kk-tools">
+                  <span class="kk-tool" title="Unity"><img src="gambar/logo_unity.svg" alt="Unity" /></span>
+                </div>
+              </div>
+            </div>
+            <div class="kk-porto-row">
+              <span class="kk-porto-label">Portofolio</span>
+              <div class="kk-portos">
+                <div class="kk-porto">
+                  <span class="kk-porto-num">01</span>
+                  <span class="kk-porto-name">Aplikasi Web</span>
+                </div>
+                <div class="kk-porto">
+                  <span class="kk-porto-num">02</span>
+                  <span class="kk-porto-name">Simulator</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Tahun 3 -->
+          <div class="kk-panel" id="kk-t3">
+            <div class="kk-yr-label">Tingkat 3 — Mata Kuliah Lanjut</div>
+            <div class="kk-cards">
+              <div class="kk-card">
+                <div class="kk-card-name">Augmented Reality</div>
+                <div class="kk-tools">
+                  <span class="kk-tool" title="Vuforia"><img src="gambar/logo_vuforia.png" alt="Vuforia" /></span>
+                  <span class="kk-tool" title="Unity"><img src="gambar/logo_unity.svg" alt="Unity" /></span>
+                </div>
+              </div>
+              <div class="kk-card">
+                <div class="kk-card-name">Pemrograman Gim</div>
+                <div class="kk-tools">
+                  <span class="kk-tool" title="Unity"><img src="gambar/logo_unity.svg" alt="Unity" /></span>
+                </div>
+              </div>
+              <div class="kk-card">
+                <div class="kk-card-name">Virtual Reality</div>
+                <div class="kk-tools">
+                  <span class="kk-tool" title="Unity"><img src="gambar/logo_unity.svg" alt="Unity" /></span>
+                  <span class="kk-tool" title="Vuforia"><img src="gambar/logo_vuforia.png" alt="Vuforia" /></span>
+                </div>
+              </div>
+              <div class="kk-card">
+                <div class="kk-card-name">Teknik Produksi Video</div>
+                <div class="kk-tools">
+                  <span class="kk-tool" title="CapCut"><img src="gambar/logo_capcut.png" alt="CapCut" /></span>
+                  <span class="kk-tool" title="Premiere Pro"><img src="gambar/logo_premiere.png" alt="Premiere Pro" /></span>
+                  <span class="kk-tool" title="DaVinci Resolve"><img src="gambar/logo_davinci.png" alt="DaVinci Resolve" /></span>
+                </div>
+              </div>
+            </div>
+            <div class="kk-porto-row">
+              <span class="kk-porto-label">Portofolio</span>
+              <div class="kk-portos">
+                <div class="kk-porto">
+                  <span class="kk-porto-num">03</span>
+                  <span class="kk-porto-name">Mobile Apps</span>
+                </div>
+                <div class="kk-porto">
+                  <span class="kk-porto-num">04</span>
+                  <span class="kk-porto-name">Game Novel Visual</span>
+                </div>
+                <div class="kk-porto">
+                  <span class="kk-porto-num">05</span>
+                  <span class="kk-porto-name">Game</span>
+                </div>
+                <div class="kk-porto">
+                  <span class="kk-porto-num">06</span>
+                  <span class="kk-porto-name">Video</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Tahun 4 -->
+          <div class="kk-panel" id="kk-t4">
+            <div class="kk-yr-label">Tingkat 4 — Penyelesaian Studi</div>
+            <div class="kk-t4-grid">
+              <div class="kk-t4-card kk-t4-magang">
+                <div class="kk-t4-icon">&#127968;</div>
+                <div class="kk-t4-title">Magang</div>
+                <p class="kk-t4-desc">Praktik kerja industri selama satu semester di perusahaan mitra atau instansi terkait bidang multimedia dan teknologi.</p>
+              </div>
+              <div class="kk-t4-card kk-t4-ta">
+                <div class="kk-t4-icon">&#127891;</div>
+                <div class="kk-t4-title">Proyek Akhir</div>
+                <p class="kk-t4-desc">Tugas akhir berupa produk multimedia interaktif — game, AR/VR, aplikasi, atau karya audiovisual inovatif. Tersedia 6 jalur penyelesaian:</p>
+                <ol class="kk-jalur-list">
+                  <li><span class="kk-jalur-num">1</span> Reguler</li>
+                  <li><span class="kk-jalur-num">2</span> Magang 2 Semester</li>
+                  <li><span class="kk-jalur-num">3</span> Technopreneurship</li>
+                  <li><span class="kk-jalur-num">4</span> Start-up</li>
+                  <li><span class="kk-jalur-num">5</span> Publikasi</li>
+                  <li><span class="kk-jalur-num">6</span> Magang Bersertifikat</li>
+                </ol>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SLIDE 7: ALUMNI ===== -->
+    <section id="alumni" class="slide slide-light">
+      <div class="slide-inner alm-inner">
+        <div class="alm-header">
+          <span class="section-tag">Lulusan TRM</span>
+          <h2 class="section-title">Alumni <span class="gold">TRM</span></h2>
+          <p class="alm-lead">Tempat kerja dan posisi yang digeluti lulusan TRM di industri.</p>
+        </div>
+        <div class="alm-grid">
+
+          <!-- Kiri: Perusahaan -->
+          <div class="alm-col">
+            <h3 class="alm-col-title">Perusahaan</h3>
+            <div class="alm-cat-list">
+
+              <div class="alm-cat-row">
+                <span class="alm-cat-label">&#127918; Games</span>
+                <div class="alm-pills">
+                  <span class="alm-pill">Dunia Games</span>
+                  <span class="alm-pill">Gameloft</span>
+                  <span class="alm-pill">Jagad Creative</span>
+                  <span class="alm-pill">Ariverse</span>
+                </div>
+              </div>
+
+              <div class="alm-cat-row">
+                <span class="alm-cat-label">&#128250; Media</span>
+                <div class="alm-pills">
+                  <span class="alm-pill">TvOne</span>
+                  <span class="alm-pill">TransTV</span>
+                  <span class="alm-pill">CNBC</span>
+                </div>
+              </div>
+
+              <div class="alm-cat-row">
+                <span class="alm-cat-label">&#127981; Banking</span>
+                <div class="alm-pills">
+                  <span class="alm-pill">Mandiri</span>
+                  <span class="alm-pill">BRI</span>
+                  <span class="alm-pill">BNI</span>
+                  <span class="alm-pill">MayBank</span>
+                  <span class="alm-pill">CIMB</span>
+                </div>
+              </div>
+
+              <div class="alm-cat-row">
+                <span class="alm-cat-label">&#128225; Telco</span>
+                <div class="alm-pills">
+                  <span class="alm-pill">Telkom</span>
+                </div>
+              </div>
+
+              <div class="alm-cat-row">
+                <span class="alm-cat-label">&#127760; Others</span>
+                <div class="alm-pills">
+                  <span class="alm-pill">Traveloka</span>
+                  <span class="alm-pill">EdgeProp Sing.</span>
+                  <span class="alm-pill">Astra</span>
+                </div>
+              </div>
+
+              <div class="alm-cat-row">
+                <span class="alm-cat-label">&#128161; Entrepreneurial</span>
+                <div class="alm-pills">
+                  <span class="alm-pill">Cube Studio</span>
+                  <span class="alm-pill">Mateha</span>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Kanan: Posisi -->
+          <div class="alm-col">
+            <h3 class="alm-col-title">Posisi Kerja</h3>
+            <div class="alm-pos-list">
+              <div class="alm-pos-item"><span class="alm-pos-num">01</span><span class="alm-pos-name">Graphic Designer / Illustrator</span></div>
+              <div class="alm-pos-item"><span class="alm-pos-num">02</span><span class="alm-pos-name">Video Editor</span></div>
+              <div class="alm-pos-item"><span class="alm-pos-num">03</span><span class="alm-pos-name">Back / Front / Full Stack Developer</span></div>
+              <div class="alm-pos-item"><span class="alm-pos-num">04</span><span class="alm-pos-name">Data Scientist / Analyst</span></div>
+              <div class="alm-pos-item"><span class="alm-pos-num">05</span><span class="alm-pos-name">Game / AR / VR Developer, Designer &amp; Artist</span></div>
+              <div class="alm-pos-item"><span class="alm-pos-num">06</span><span class="alm-pos-name">UI / UX Designer</span></div>
+              <div class="alm-pos-item"><span class="alm-pos-num">07</span><span class="alm-pos-name">Content Creator</span></div>
+              <div class="alm-pos-item"><span class="alm-pos-num">08</span><span class="alm-pos-name">3D Modeler / Designer / Animator</span></div>
+              <div class="alm-pos-item"><span class="alm-pos-num">09</span><span class="alm-pos-name">Social Media Specialist</span></div>
+            </div>
+          </div>
+
         </div>
       </div>
     </section>
@@ -456,6 +761,20 @@
         <div class="tr-tabs" id="tr-tabs"></div>
         <div class="tr-content" id="tr-content">
           <p class="ts-loading">Memuat data&hellip;</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SLIDE: BEASISWA ===== -->
+    <section id="beasiswa" class="slide slide-dark">
+      <div class="slide-inner bsw-inner">
+        <div class="bsw-header">
+          <span class="section-tag tag-dark">Dukungan Mahasiswa</span>
+          <h2 class="section-title light">Beasiswa <span class="gold">TRM</span></h2>
+        </div>
+        <div class="bsw-tabs" id="bsw-tabs"></div>
+        <div class="bsw-content" id="bsw-content">
+          <p class="bsw-loading">Memuat data&hellip;</p>
         </div>
       </div>
     </section>
@@ -582,6 +901,33 @@
       </div>
     </section>
 
+    <!-- ===== SLIDE: EXPO TRM ===== -->
+    <section id="expo" class="slide slide-dark">
+      <div class="slide-inner expo-inner">
+        <div class="expo-text">
+          <span class="section-tag tag-dark">Pameran Tahunan</span>
+          <h2 class="section-title light">Expo <span class="gold">TRM</span></h2>
+          <p class="expo-desc">
+            Setiap tahun, mahasiswa TRM mengadakan expo tugas besar dalam acara yang disebut <strong>Expo TRM</strong>.
+            Expo ini adalah pameran tugas besar mahasiswa untuk
+            <span class="expo-porto">Portofolio 2: Simulator</span> dan
+            <span class="expo-porto">Portofolio 5: Game</span>.
+          </p>
+        </div>
+        <div class="expo-video">
+          <div class="expo-video-wrap">
+            <iframe
+              src="https://www.youtube.com/embed/7QNG1QXx2zE"
+              title="Expo TRM"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen>
+            </iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- ===== SLIDE 9: KONTAK ===== -->
     <section id="kontak" class="slide slide-dark slide-kontak">
       <div class="slide-inner kontak-inner">
@@ -607,7 +953,21 @@
               <span class="k-icon">&#127760;</span>
               <div>
                 <h5>Website</h5>
-                <p>dsm.telkomuniversity.ac.id</p>
+                <p><a href="https://dsm.telkomuniversity.ac.id" target="_blank" class="k-link">dsm.telkomuniversity.ac.id</a></p>
+              </div>
+            </div>
+            <div class="k-item">
+              <span class="k-icon k-icon-img"><img src="gambar/logo_youtube.png" alt="YouTube" /></span>
+              <div>
+                <h5>YouTube</h5>
+                <p><a href="https://www.youtube.com/@d4trm-telu" target="_blank" class="k-link">@d4trm-telu</a></p>
+              </div>
+            </div>
+            <div class="k-item">
+              <span class="k-icon k-icon-img"><img src="gambar/logo_instagram.svg" alt="Instagram" /></span>
+              <div>
+                <h5>Instagram</h5>
+                <p><a href="https://www.instagram.com/s1trm.fit" target="_blank" class="k-link">@s1trm.fit</a></p>
               </div>
             </div>
           </div>
@@ -719,219 +1079,6 @@
     });
 
     document.querySelector('.timeline').addEventListener('mouseleave', () => showSejImg('2015'));
-
-    // ── Alumni Tracer Study — render dari data/tracer_study.json ──
-    (function () {
-      const TS_C = 2 * Math.PI * 75;
-
-      function fmtPct(n) {
-        return n.toString().replace('.', ',') + '%';
-      }
-
-      function fmtRupiah(n) {
-        return 'Rp' + n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.');
-      }
-
-      function donutSvg(id, centerNum, centerLabel) {
-        return `<svg class="ts-donut-svg" id="${id}" viewBox="0 0 200 200">
-          <text x="100" y="93" class="donut-center-num">${centerNum}</text>
-          <text x="100" y="113" class="donut-center-label">${centerLabel}</text>
-        </svg>`;
-      }
-
-      function legendHorizHtml(items) {
-        return '<div class="ts-legend-horiz">' +
-          items.map(it =>
-            `<div class="ts-lh-item">
-              <span class="ts-legend-dot" style="background:${it.warna}"></span>
-              <span>${it.label} ${fmtPct(it.pct)}</span>
-            </div>`
-          ).join('') + '</div>';
-      }
-
-      function hbarsHtml(items) {
-        return '<div class="ts-hbars">' +
-          items.map(it =>
-            `<div class="ts-hbar-item">
-              <span class="ts-hbar-label">${it.label}</span>
-              <div class="ts-hbar-track">
-                <div class="ts-hbar-fill" style="--w:${it.pct}%;background:${it.warna};"></div>
-              </div>
-              <span class="ts-hbar-pct">${fmtPct(it.pct)}</span>
-            </div>`
-          ).join('') + '</div>';
-      }
-
-      function donutCol(id, title, items) {
-        const first = items[0];
-        return `<div class="ts-chart-col">
-          <h4 class="ts-chart-title">${title}</h4>
-          <div class="ts-donut-wrap">${donutSvg(id, fmtPct(first.pct), first.label)}</div>
-          ${legendHorizHtml(items)}
-        </div>`;
-      }
-
-      function buildPanel1(d) {
-        const first = d.data[0];
-        const wtStr = d.waktu_tunggu_bulan.toString().replace('.', ',');
-        return `<div class="ts-kondisi-layout">
-          <div class="ts-donut-wrap">
-            ${donutSvg('donut-kondisi', fmtPct(first.pct), first.label)}
-          </div>
-          <div class="ts-legend-wrap">
-            ${d.data.map(it => `
-              <div class="ts-legend-item">
-                <span class="ts-legend-dot" style="background:${it.warna}"></span>
-                <span class="ts-legend-pct">${fmtPct(it.pct)}</span>
-                <span class="ts-legend-lbl">${it.label}</span>
-              </div>`).join('')}
-          </div>
-          <div class="ts-highlight-card">
-            <span class="ts-hl-num">${wtStr}</span>
-            <span class="ts-hl-unit">bulan</span>
-            <span class="ts-hl-label">Rata-rata Waktu Tunggu Lulusan</span>
-          </div>
-        </div>`;
-      }
-
-      function buildPanel2(d) {
-        return `<div class="ts-two-col-layout">
-          ${donutCol('donut-kategori', 'Kategori Perusahaan', d.kategori)}
-          <div class="ts-divider-v"></div>
-          ${donutCol('donut-jenis', 'Jenis Perusahaan', d.jenis)}
-        </div>`;
-      }
-
-      function buildPanel3(d) {
-        return `<div class="ts-two-col-layout" style="align-items:start;">
-          <div class="ts-bar-col">
-            <h4 class="ts-chart-title">Keeratan Pekerjaan dengan Program Studi</h4>
-            ${hbarsHtml(d.keeratan)}
-          </div>
-          <div class="ts-divider-v"></div>
-          <div class="ts-bar-col">
-            <h4 class="ts-chart-title">Kesesuaian Pekerjaan dengan Tingkat Pendidikan</h4>
-            ${hbarsHtml(d.kesesuaian_pendidikan.data)}
-            <p class="ts-note">${d.kesesuaian_pendidikan.catatan}</p>
-          </div>
-        </div>`;
-      }
-
-      function buildPanel4(d) {
-        return `<div class="ts-two-col-layout">
-          <div class="ts-salary-wrap">
-            <span class="ts-sal-label">Rata-rata Pendapatan</span>
-            <span class="ts-sal-num">${fmtRupiah(d.pendapatan_rata_rata)}</span>
-            <span class="ts-sal-sub">${d.keterangan}</span>
-          </div>
-          <div class="ts-divider-v"></div>
-          ${donutCol('donut-posisi', 'Posisi Kerja', d.posisi)}
-        </div>`;
-      }
-
-      function drawDonut(svgId, items) {
-        const svg = document.getElementById(svgId);
-        if (!svg) return;
-        svg.querySelectorAll('.ts-seg').forEach(el => el.remove());
-        const firstText = svg.querySelector('text');
-
-        const bg = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
-        [['cx',100],['cy',100],['r',75],['fill','none'],['stroke','#ede9d8'],['stroke-width',26]]
-          .forEach(([k,v]) => bg.setAttribute(k, v));
-        bg.classList.add('ts-seg');
-        svg.insertBefore(bg, firstText);
-
-        let cum = 0;
-        items.forEach(item => {
-          const len = (item.pct / 100) * TS_C;
-          const c = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
-          [['cx',100],['cy',100],['r',75],['fill','none'],['stroke',item.warna],
-           ['stroke-width',26],['stroke-linecap','butt'],
-           ['stroke-dasharray',`0 ${TS_C}`],['stroke-dashoffset',`${-cum}`],
-           ['transform','rotate(-90 100 100)']]
-            .forEach(([k,v]) => c.setAttribute(k, v));
-          c.classList.add('ts-seg');
-          c.style.transition = 'stroke-dasharray .75s cubic-bezier(.4,0,.2,1)';
-          svg.insertBefore(c, firstText);
-          cum += len;
-          requestAnimationFrame(() => requestAnimationFrame(() =>
-            c.setAttribute('stroke-dasharray', `${len} ${TS_C - len}`)
-          ));
-        });
-      }
-
-      function animateBars(panel) {
-        panel.querySelectorAll('.ts-hbar-fill').forEach(bar => {
-          bar.classList.remove('ts-animated');
-          requestAnimationFrame(() => requestAnimationFrame(() =>
-            bar.classList.add('ts-animated')
-          ));
-        });
-      }
-
-      function activatePanel(panelId, donutMap) {
-        const panel = document.getElementById(panelId);
-        if (!panel) return;
-        panel.querySelectorAll('.ts-donut-svg').forEach(svg => {
-          if (donutMap[svg.id]) drawDonut(svg.id, donutMap[svg.id]);
-        });
-        animateBars(panel);
-      }
-
-      function initAlumni(d) {
-        const m = d.meta;
-        document.getElementById('alumni-tag').textContent = `Tracer Study ${m.tahun}`;
-        document.getElementById('alumni-desc').innerHTML =
-          `Kondisi Lulusan ${m.kondisi_lulusan_tahun} &middot; ${m.prodi} <strong>(N=${m.n})</strong>`;
-
-        const tabs = [
-          { id: 'ts-kondisi',    label: 'Kondisi Lulusan' },
-          { id: 'ts-perusahaan', label: 'Jenis Perusahaan' },
-          { id: 'ts-kesesuaian', label: 'Kesesuaian Karir' },
-          { id: 'ts-pendapatan', label: 'Pendapatan & Posisi' },
-        ];
-        document.getElementById('ts-tabs').innerHTML = tabs.map((t, i) =>
-          `<button class="ts-tab${i === 0 ? ' active' : ''}" data-tab="${t.id}">${t.label}</button>`
-        ).join('');
-
-        const panels = [
-          { id: 'ts-kondisi',    html: buildPanel1(d.kondisi_lulusan) },
-          { id: 'ts-perusahaan', html: buildPanel2(d.jenis_perusahaan) },
-          { id: 'ts-kesesuaian', html: buildPanel3(d.kesesuaian_karir) },
-          { id: 'ts-pendapatan', html: buildPanel4(d.pendapatan_posisi) },
-        ];
-        document.getElementById('ts-content').innerHTML = panels.map((p, i) =>
-          `<div class="ts-panel${i === 0 ? ' active' : ''}" id="${p.id}">${p.html}</div>`
-        ).join('');
-
-        const donutMap = {
-          'donut-kondisi':  d.kondisi_lulusan.data,
-          'donut-kategori': d.jenis_perusahaan.kategori,
-          'donut-jenis':    d.jenis_perusahaan.jenis,
-          'donut-posisi':   d.pendapatan_posisi.posisi,
-        };
-
-        document.getElementById('ts-tabs').querySelectorAll('.ts-tab').forEach(tab => {
-          tab.addEventListener('click', () => {
-            document.querySelectorAll('.ts-tab').forEach(t => t.classList.remove('active'));
-            document.querySelectorAll('.ts-panel').forEach(p => p.classList.remove('active'));
-            tab.classList.add('active');
-            document.getElementById(tab.dataset.tab).classList.add('active');
-            activatePanel(tab.dataset.tab, donutMap);
-          });
-        });
-
-        activatePanel('ts-kondisi', donutMap);
-      }
-
-      fetch('data/tracer_study.json')
-        .then(r => r.json())
-        .then(initAlumni)
-        .catch(() => {
-          document.getElementById('ts-content').innerHTML =
-            '<p class="ts-loading">Gagal memuat data. Pastikan file <code>data/tracer_study.json</code> tersedia dan halaman dibuka melalui server (bukan file://).</p>';
-        });
-    })();
 
     // ── Data Magang — render dari data/magang_2022.csv ──
     (function () {
@@ -1523,6 +1670,241 @@
           trTip.classList.remove('tr-tip-show');
         }
       });
+    })();
+
+    // Kurikulum tab switching
+    (function() {
+      document.querySelectorAll('.kk-tab').forEach(tab => {
+        tab.addEventListener('click', () => {
+          document.querySelectorAll('.kk-tab').forEach(t => t.classList.remove('active'));
+          document.querySelectorAll('.kk-panel').forEach(p => p.classList.remove('active'));
+          tab.classList.add('active');
+          document.getElementById(tab.dataset.tab).classList.add('active');
+        });
+      });
+    })();
+
+    // ── Data Beasiswa ──
+    (function () {
+      const BSW_C = 2 * Math.PI * 70;
+      const COLORS = { internal: '#bc9601', eksternal: '#5b9fd1' };
+      const BAR_COLORS = ['#bc9601','#5b9fd1','#2a9d8f','#e76f51','#7b5ea7','#b0b8c0'];
+      let bswInView = false;
+      let activatePanel = null;
+
+      function parseCSV(text) {
+        const lines = text.trim().split('\n');
+        const headers = lines[0].split(',').map(h => h.trim());
+        return lines.slice(1).map(line => {
+          const vals = line.split(',').map(v => v.trim());
+          const obj = {};
+          headers.forEach((h, i) => obj[h] = vals[i] || '');
+          return obj;
+        });
+      }
+
+      function animateBars(panel) {
+        panel.querySelectorAll('.bsw-hbar-fill').forEach(el => {
+          el.classList.remove('bsw-anim');
+        });
+        requestAnimationFrame(() => requestAnimationFrame(() => {
+          panel.querySelectorAll('.bsw-hbar-fill').forEach(el => el.classList.add('bsw-anim'));
+        }));
+      }
+
+      function buildTabTren(rows) {
+        const maxCount = Math.max(...rows.map(r => +r['Jumlah Penerima Mahasiswa']));
+        const total = rows.reduce((s, r) => s + (+r['Jumlah Penerima Mahasiswa']), 0);
+        const avgRatio = (rows.reduce((s, r) => {
+          return s + parseFloat(r['Presentase Ratio']);
+        }, 0) / rows.length).toFixed(1);
+
+        const bars = rows.map(r => {
+          const count = +r['Jumlah Penerima Mahasiswa'];
+          const pct = (count / maxCount * 100).toFixed(1);
+          const ratio = r['Presentase Ratio'] || '';
+          return `<div class="bsw-year-row">
+            <span class="bsw-year-lbl">${r['Tahun']}</span>
+            <div class="bsw-hbar-track">
+              <div class="bsw-hbar-fill" style="--w:${pct}%;background:#bc9601">${count}</div>
+            </div>
+            <span class="bsw-year-val">${count} mhs<span class="bsw-year-ratio">${ratio}</span></span>
+          </div>`;
+        }).join('');
+
+        return `<div>
+          <div class="bsw-stat-row">
+            <div class="bsw-stat-card">
+              <span class="bsw-stat-num">${total}</span>
+              <span class="bsw-stat-lbl">Total Penerima Beasiswa<br/><small>2020–2025</small></span>
+            </div>
+            <div class="bsw-stat-card">
+              <span class="bsw-stat-num" style="color:#5b9fd1">${avgRatio}%</span>
+              <span class="bsw-stat-lbl">Rata-rata Rasio<br/><small>penerima per angkatan</small></span>
+            </div>
+            <div class="bsw-stat-card">
+              <span class="bsw-stat-num" style="color:#2a9d8f">${rows[rows.length-1]['Jumlah Penerima Mahasiswa']}</span>
+              <span class="bsw-stat-lbl">Penerima Terbaru<br/><small>tahun ${rows[rows.length-1]['Tahun']}</small></span>
+            </div>
+          </div>
+          <div class="bsw-bars-wrap">${bars}</div>
+        </div>`;
+      }
+
+      function buildTabJenis(rows) {
+        const map = {};
+        rows.forEach(r => {
+          const nama = r['Nama Beasiswa'] || 'Lainnya';
+          if (!map[nama]) map[nama] = 0;
+          map[nama] += +(r['∑'] || r['∑'] || 0);
+        });
+        const sorted = Object.entries(map).sort((a, b) => b[1] - a[1]).slice(0, 12);
+        const maxCount = sorted[0][1];
+        const bars = sorted.map(([nama, count], i) => {
+          const pct = (count / maxCount * 100).toFixed(1);
+          const color = BAR_COLORS[Math.min(i, BAR_COLORS.length - 1)];
+          return `<div class="bsw-jenis-row">
+            <span class="bsw-jenis-lbl" title="${nama}">${nama}</span>
+            <div class="bsw-hbar-track">
+              <div class="bsw-hbar-fill" style="--w:${pct}%;background:${color}">${count}</div>
+            </div>
+            <span class="bsw-jenis-val">${count}</span>
+          </div>`;
+        }).join('');
+        return `<div class="bsw-bars-wrap">${bars}</div>`;
+      }
+
+      function buildTabSumber(rows, totalTren) {
+        const data = rows.map((r, i) => ({
+          label: r['Tipe Beasiswa'],
+          count: +r['Jumlah'],
+          color: i === 0 ? COLORS.internal : COLORS.eksternal
+        }));
+        const total = data.reduce((s, d) => s + d.count, 0);
+
+        const legend = data.map(d =>
+          `<div class="bsw-legend-item">
+            <span class="bsw-legend-dot" style="background:${d.color}"></span>
+            <span class="bsw-legend-pct">${(d.count/total*100).toFixed(1)}%</span>
+            <span class="bsw-legend-lbl">${d.label}</span>
+            <span class="bsw-legend-count">${d.count} beasiswa</span>
+          </div>`
+        ).join('');
+
+        return `<div class="bsw-sumber-layout">
+          <div class="bsw-donut-wrap">
+            <svg id="bsw-donut" class="bsw-donut-svg" viewBox="0 0 200 200">
+              <text x="100" y="92"  class="bsw-donut-num">${total}</text>
+              <text x="100" y="114" class="bsw-donut-lbl">beasiswa</text>
+            </svg>
+          </div>
+          <div>
+            <div class="bsw-legend-wrap">${legend}</div>
+            <div class="bsw-stat-row" style="margin-top:28px">
+              <div class="bsw-stat-card">
+                <span class="bsw-stat-num" style="color:#bc9601">${data[0].count}</span>
+                <span class="bsw-stat-lbl">Beasiswa Internal<br/><small>dari Telkom University</small></span>
+              </div>
+              <div class="bsw-stat-card">
+                <span class="bsw-stat-num" style="color:#5b9fd1">${data[1] ? data[1].count : 0}</span>
+                <span class="bsw-stat-lbl">Beasiswa Eksternal<br/><small>dari lembaga luar</small></span>
+              </div>
+            </div>
+          </div>
+        </div>`;
+      }
+
+      function drawDonut(items, total) {
+        const svg = document.getElementById('bsw-donut');
+        if (!svg) return;
+        svg.querySelectorAll('.bsw-seg').forEach(el => el.remove());
+        const firstText = svg.querySelector('text');
+        const bg = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+        [['cx','100'],['cy','100'],['r','70'],['fill','none'],
+         ['stroke','rgba(255,255,255,0.07)'],['stroke-width','24']]
+          .forEach(([k,v]) => bg.setAttribute(k,v));
+        bg.classList.add('bsw-seg');
+        svg.insertBefore(bg, firstText);
+        let cum = 0;
+        items.forEach(item => {
+          const len = (item.count / total) * BSW_C;
+          const c = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+          [['cx','100'],['cy','100'],['r','70'],['fill','none'],
+           ['stroke', item.color],['stroke-width','24'],['stroke-linecap','butt'],
+           ['stroke-dasharray',`0 ${BSW_C}`],['stroke-dashoffset',`-${cum}`],
+           ['transform','rotate(-90 100 100)']]
+            .forEach(([k,v]) => c.setAttribute(k,v));
+          c.style.transition = 'stroke-dasharray .85s cubic-bezier(.4,0,.2,1)';
+          c.classList.add('bsw-seg');
+          svg.insertBefore(c, firstText);
+          const fl = len;
+          requestAnimationFrame(() => requestAnimationFrame(() =>
+            c.setAttribute('stroke-dasharray', `${fl} ${BSW_C - fl}`)
+          ));
+          cum += len;
+        });
+      }
+
+      function render(trenRows, jenisRows, sumberRows) {
+        const tabs = [
+          { label: 'Tren Tahunan',    id: 'bsw-p0' },
+          { label: 'Jenis Beasiswa',  id: 'bsw-p1' },
+          { label: 'Sumber Beasiswa', id: 'bsw-p2' }
+        ];
+        const panels = [
+          buildTabTren(trenRows),
+          buildTabJenis(jenisRows),
+          buildTabSumber(sumberRows)
+        ];
+
+        const tabsEl = document.getElementById('bsw-tabs');
+        const contentEl = document.getElementById('bsw-content');
+        tabsEl.innerHTML = tabs.map((t, i) =>
+          `<button class="bsw-tab${i===0?' active':''}" data-idx="${i}">${t.label}</button>`
+        ).join('');
+        contentEl.innerHTML = tabs.map((t, i) =>
+          `<div class="bsw-panel${i===0?' active':''}" id="${t.id}">${panels[i]}</div>`
+        ).join('');
+
+        function activatePanelFn(idx) {
+          document.querySelectorAll('.bsw-tab').forEach((t,i) => t.classList.toggle('active', i===idx));
+          document.querySelectorAll('.bsw-panel').forEach((p,i) => p.classList.toggle('active', i===idx));
+          const panel = document.querySelectorAll('.bsw-panel')[idx];
+          if (idx === 0 || idx === 1) {
+            animateBars(panel);
+          } else if (idx === 2) {
+            drawDonut(sumberRows.map((r,i) => ({
+              count: +r['Jumlah'],
+              color: i===0 ? COLORS.internal : COLORS.eksternal
+            })), sumberRows.reduce((s,r) => s + (+r['Jumlah']), 0));
+          }
+        }
+
+        activatePanel = activatePanelFn;
+        tabsEl.querySelectorAll('.bsw-tab').forEach((btn, i) => {
+          btn.addEventListener('click', () => activatePanelFn(i));
+        });
+
+        if (bswInView) activatePanelFn(0);
+      }
+
+      Promise.all([
+        fetch('data/beasiswa_jumlah_penerima.csv').then(r => r.text()),
+        fetch('data/beasiswa_jenis.csv').then(r => r.text()),
+        fetch('data/beasiswa_tipe.csv').then(r => r.text())
+      ]).then(([trenText, jenisText, sumberText]) => {
+        render(parseCSV(trenText), parseCSV(jenisText), parseCSV(sumberText));
+      }).catch(() => {
+        document.getElementById('bsw-content').innerHTML =
+          '<p class="bsw-loading">Gagal memuat data.</p>';
+      });
+
+      new IntersectionObserver(entries => {
+        if (entries[0].isIntersecting) {
+          bswInView = true;
+          if (activatePanel) activatePanel(0);
+        }
+      }, { threshold: 0.2 }).observe(document.getElementById('beasiswa'));
     })();
   </script>
 
