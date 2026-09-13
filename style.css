@@ -48,11 +48,14 @@ html { scroll-behavior: smooth; }
 
 body {
   font-family: var(--font-body);
-  background: var(--dark);
+  background: #000;
   color: var(--gray-800);
-  display: flex;
-  min-height: 100vh;
   line-height: 1.6;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 img { max-width: 100%; display: block; }
@@ -63,14 +66,26 @@ strong { font-weight: 700; }
 .terra { color: var(--terracotta); }
 
 /* =========================================================
+   STAGE — letterboxed 16:9 frame containing sidebar + main
+   ========================================================= */
+.stage {
+  position: relative;
+  width: min(100vw, calc(100vh * 16 / 9));
+  height: min(100vh, calc(100vw * 9 / 16));
+  background: var(--dark);
+  overflow: hidden;
+  box-shadow: 0 0 60px rgba(0,0,0,0.6);
+}
+
+/* =========================================================
    SIDEBAR
    ========================================================= */
 .sidebar {
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   width: var(--sidebar-w);
-  height: 100vh;
+  height: 100%;
   background: var(--dark-2);
   border-right: 1px solid var(--dark-border);
   display: flex;
@@ -181,14 +196,23 @@ strong { font-weight: 700; }
 .main {
   margin-left: var(--sidebar-w);
   width: calc(100% - var(--sidebar-w));
-  flex: 1;
+  height: 100%;
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
+
+.main::-webkit-scrollbar { display: none; }
 
 /* =========================================================
    SLIDE BASE
    ========================================================= */
 .slide {
-  min-height: 100vh;
+  height: 100%;
+  flex-shrink: 0;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -200,6 +224,8 @@ strong { font-weight: 700; }
   padding: 60px 64px;
   width: 100%;
   max-width: 1200px;
+  height: 100%;
+  box-sizing: border-box;
 }
 
 .slide-dark  { background: var(--dark-2); }
@@ -329,17 +355,27 @@ strong { font-weight: 700; }
    ========================================================= */
 .slide-hero {
   background: var(--dark);
-  min-height: 100vh;
 }
 
 .hero-inner {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 48px;
-  align-items: center;
-  padding-top: 80px;
-  padding-bottom: 80px;
+  align-items: stretch;
+  padding-top: 48px;
+  padding-bottom: 48px;
   max-width: none;
+}
+
+.hero-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.hero-visual {
+  display: flex;
+  min-height: 0;
 }
 
 .hero-inst-logos {
@@ -449,7 +485,8 @@ strong { font-weight: 700; }
   grid-template-columns: 0.75fr 1.25fr;
   grid-template-rows: repeat(3, 1fr);
   gap: 8px;
-  height: 580px;
+  height: 100%;
+  width: 100%;
   border-radius: var(--radius);
   overflow: hidden;
 }
@@ -760,10 +797,11 @@ strong { font-weight: 700; }
 .angka-inner {
   display: flex;
   flex-direction: column;
-  gap: 40px;
-  padding-top: 72px;
-  padding-bottom: 72px;
+  gap: 32px;
+  padding-top: 40px;
+  padding-bottom: 40px;
   max-width: none;
+  justify-content: center;
 }
 
 .angka-header { max-width: 480px; }
@@ -887,12 +925,12 @@ strong { font-weight: 700; }
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 64px;
-  align-items: center;
+  align-items: stretch;
 }
 
 .sejarah-visual {
   position: relative;
-  height: 520px;
+  height: 100%;
   width: 100%;
   border-radius: var(--radius);
   overflow: hidden;
@@ -915,6 +953,10 @@ strong { font-weight: 700; }
 
 .sejarah-text {
   padding-right: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 0;
 }
 
 .section-lead {
@@ -1023,9 +1065,9 @@ strong { font-weight: 700; }
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 64px;
-  align-items: start;
-  padding-top: 80px;
-  padding-bottom: 80px;
+  align-items: center;
+  padding-top: 40px;
+  padding-bottom: 40px;
   max-width: none;
 }
 
@@ -1110,10 +1152,11 @@ strong { font-weight: 700; }
 .lulusan-inner {
   display: flex;
   flex-direction: column;
-  gap: 48px;
+  gap: 28px;
   max-width: none;
-  padding-top: 80px;
-  padding-bottom: 80px;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  justify-content: center;
 }
 
 .lulusan-header {
@@ -1128,11 +1171,11 @@ strong { font-weight: 700; }
 }
 
 .lulusan-img {
-  height: 340px;
+  height: clamp(200px, 30vh, 340px);
 }
 
 .lulusan-img-photo {
-  height: 340px;
+  height: clamp(200px, 30vh, 340px);
   width: 100%;
   object-fit: cover;
   object-position: center top;
@@ -1240,10 +1283,11 @@ strong { font-weight: 700; }
 .alm-inner {
   display: flex;
   flex-direction: column;
-  gap: 36px;
+  gap: 28px;
   max-width: none;
-  padding-top: 64px;
-  padding-bottom: 64px;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  justify-content: center;
 }
 
 .alm-header { max-width: 600px; }
@@ -1357,10 +1401,11 @@ strong { font-weight: 700; }
 .plo-inner {
   display: flex;
   flex-direction: column;
-  gap: 40px;
-  padding-top: 80px;
-  padding-bottom: 80px;
+  gap: 28px;
+  padding-top: 40px;
+  padding-bottom: 40px;
   max-width: none;
+  justify-content: center;
 }
 
 .plo-header {
@@ -1422,10 +1467,11 @@ strong { font-weight: 700; }
 .prestasi-inner {
   display: flex;
   flex-direction: column;
-  gap: 40px;
-  padding-top: 80px;
-  padding-bottom: 80px;
+  gap: 28px;
+  padding-top: 40px;
+  padding-bottom: 40px;
   max-width: none;
+  justify-content: center;
 }
 
 .prestasi-header {
@@ -1440,7 +1486,7 @@ strong { font-weight: 700; }
 }
 
 .prestasi-img {
-  height: 440px;
+  height: clamp(240px, 36vh, 440px);
 }
 
 .prestasi-list {
@@ -1501,12 +1547,13 @@ strong { font-weight: 700; }
 .kontak-inner {
   display: grid;
   grid-template-columns: 1fr 1.2fr;
-  gap: 64px;
-  align-items: start;
-  padding-top: 80px;
-  padding-bottom: 40px;
+  gap: 48px;
+  align-items: center;
+  padding-top: 40px;
+  padding-bottom: 24px;
   max-width: none;
   flex: 1;
+  min-height: 0;
 }
 
 .kontak-list {
@@ -1655,11 +1702,28 @@ strong { font-weight: 700; }
 @media (max-width: 768px) {
   :root { --sidebar-w: 0px; }
 
+  body { overflow-y: auto; align-items: stretch; }
+
+  .stage {
+    width: 100vw;
+    height: auto;
+    min-height: 100vh;
+    box-shadow: none;
+  }
+
   .sidebar { display: none; }
 
-  .main { margin-left: 0; width: 100%; }
+  .main {
+    margin-left: 0;
+    width: 100%;
+    height: auto;
+    overflow-y: visible;
+    scroll-snap-type: none;
+  }
 
-  .slide-inner { padding: 40px 24px; }
+  .slide { height: auto; min-height: 100vh; scroll-snap-align: none; }
+
+  .slide-inner { height: auto; padding: 40px 24px; }
 
   .hero-inner { padding: 60px 24px; }
 
@@ -2910,6 +2974,15 @@ strong { font-weight: 700; }
     animation: none !important;
   }
 
+  /* Undo screen-only letterbox stage — print needs full page flow */
+  body { display: block !important; overflow: visible !important; height: auto !important; }
+  .stage {
+    width: 100% !important;
+    height: auto !important;
+    box-shadow: none !important;
+    overflow: visible !important;
+  }
+
   /* Hide sidebar and nav */
   .sidebar { display: none !important; }
 
@@ -2917,6 +2990,9 @@ strong { font-weight: 700; }
   .main {
     margin-left: 0 !important;
     width: 100% !important;
+    height: auto !important;
+    overflow: visible !important;
+    scroll-snap-type: none !important;
   }
 
   /* Each slide = one PDF page */

@@ -11,6 +11,8 @@
 </head>
 <body>
 
+  <div class="stage" id="stage">
+
   <!-- ============ LEFT SIDEBAR ============ -->
   <aside class="sidebar" id="sidebar">
     <div class="sidebar-logo">
@@ -1001,10 +1003,13 @@
 
   </main><!-- /main -->
 
+  </div><!-- /stage -->
+
   <script>
     // Active nav tracking on scroll
     const sections = document.querySelectorAll('.slide[id]');
     const navItems = document.querySelectorAll('.nav-item');
+    const mainScroll = document.querySelector('.main');
 
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
@@ -1014,7 +1019,7 @@
           if (active) active.classList.add('active');
         }
       });
-    }, { threshold: 0.4 });
+    }, { root: mainScroll, threshold: 0.4 });
 
     sections.forEach(s => observer.observe(s));
 
@@ -1335,7 +1340,7 @@
           } else {
             mgSlideInView = false;
           }
-        }, { threshold: 0.2 }).observe(_mgSection);
+        }, { root: document.querySelector('.main'), threshold: 0.2 }).observe(_mgSection);
       }
     })();
 
@@ -1650,7 +1655,7 @@
           } else {
             trInView = false;
           }
-        }, { threshold: 0.2 }).observe(_trSection);
+        }, { root: document.querySelector('.main'), threshold: 0.2 }).observe(_trSection);
       }
 
       // Tooltip untuk stacked bar segments
@@ -1904,7 +1909,7 @@
           bswInView = true;
           if (activatePanel) activatePanel(0);
         }
-      }, { threshold: 0.2 }).observe(document.getElementById('beasiswa'));
+      }, { root: document.querySelector('.main'), threshold: 0.2 }).observe(document.getElementById('beasiswa'));
     })();
   </script>
 
