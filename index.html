@@ -242,45 +242,63 @@
         <div class="angka-grid">
 
           <!-- Baris 1: angka besar utama -->
-          <div class="angka-card angka-xl">
-            <span class="angka-num" data-target="1349" data-format="dot">1.349</span>
-            <span class="angka-label">Total Mahasiswa &amp; Alumni</span>
-          </div>
-          <div class="angka-card angka-xl">
-            <span class="angka-num" data-target="600">600<span class="angka-plus">+</span></span>
-            <span class="angka-label">Mahasiswa Aktif</span>
-          </div>
-          <div class="angka-card angka-xl">
-            <span class="angka-num" data-target="531">531</span>
-            <span class="angka-label">Alumni</span>
+          <div class="angka-row angka-row-main">
+            <div class="angka-card angka-xl">
+              <span class="angka-num" id="ang-total" data-target="0" data-format="dot">&ndash;</span>
+              <span class="angka-label">Total Mahasiswa &amp; Alumni</span>
+            </div>
+            <div class="angka-card angka-xl">
+              <span class="angka-num" id="ang-aktif" data-target="0">&ndash;</span>
+              <span class="angka-label">Mahasiswa Aktif</span>
+            </div>
+            <div class="angka-card angka-xl">
+              <span class="angka-num" id="ang-alumni" data-target="0">&ndash;</span>
+              <span class="angka-label">Alumni</span>
+            </div>
           </div>
 
           <!-- Baris 2: angka sekunder -->
-          <div class="angka-card">
-            <span class="angka-num" data-target="10">10</span>
-            <span class="angka-label">Angkatan</span>
-          </div>
-          <div class="angka-card">
-            <span class="angka-num" data-target="21">21</span>
-            <span class="angka-label">Dosen</span>
-          </div>
-          <div class="angka-card angka-accent">
-            <span class="angka-num" data-target="1">1</span>
-            <span class="angka-label">Guru Besar</span>
-          </div>
-          <div class="angka-card">
-            <div class="angka-split">
-              <div class="angka-split-item">
-                <span class="angka-num" data-target="7">7</span>
-                <span class="angka-sublabel">Doktor</span>
-              </div>
-              <div class="angka-split-sep">+</div>
-              <div class="angka-split-item">
-                <span class="angka-num" data-target="4">4</span>
-                <span class="angka-sublabel">Kandidat</span>
-              </div>
+          <div class="angka-row angka-row-secondary">
+            <div class="angka-card">
+              <span class="angka-num" id="ang-angkatan" data-target="0">&ndash;</span>
+              <span class="angka-label">Angkatan</span>
             </div>
-            <span class="angka-label">Doktor &amp; Kandidat Doktor</span>
+            <div class="angka-card">
+              <span class="angka-num" id="ang-dosen" data-target="0">&ndash;</span>
+              <span class="angka-label">Dosen</span>
+            </div>
+            <div class="angka-card angka-accent">
+              <span class="angka-num" id="ang-gb" data-target="0">&ndash;</span>
+              <span class="angka-label">Guru Besar</span>
+            </div>
+            <div class="angka-card">
+              <div class="angka-split">
+                <div class="angka-split-item">
+                  <span class="angka-num" id="ang-doktor" data-target="0">&ndash;</span>
+                  <span class="angka-sublabel">Doktor</span>
+                </div>
+                <div class="angka-split-sep">+</div>
+                <div class="angka-split-item">
+                  <span class="angka-num" data-target="4">4</span>
+                  <span class="angka-sublabel">Kandidat</span>
+                </div>
+              </div>
+              <span class="angka-label">Doktor &amp; Kandidat Doktor</span>
+            </div>
+            <div class="angka-card">
+              <div class="angka-split">
+                <div class="angka-split-item">
+                  <span class="angka-num" data-target="1">1</span>
+                  <span class="angka-sublabel">Dosen</span>
+                </div>
+                <div class="angka-split-sep">:</div>
+                <div class="angka-split-item">
+                  <span class="angka-num" id="ang-rasio" data-target="0">&ndash;</span>
+                  <span class="angka-sublabel">Mahasiswa</span>
+                </div>
+              </div>
+              <span class="angka-label">Rasio Dosen &amp; Mahasiswa</span>
+            </div>
           </div>
 
         </div>
@@ -1068,6 +1086,78 @@
         card.querySelectorAll('.angka-num[data-target]').forEach(animateCount);
       });
     });
+
+    // ── TRM dalam Angka — hitung dari data/mahasiswa.csv & data/dosen.csv ──
+    (function () {
+      let angkaInView = false;
+      let angkaLoaded = false;
+
+      function runAngkaCountUp() {
+        if (!angkaInView || !angkaLoaded) return;
+        document.querySelectorAll('#angka .angka-num[data-target]').forEach(animateCount);
+      }
+
+      function parseCSV(text) {
+        const lines = text.trim().split(/\r?\n/);
+        const headers = lines[0].split(',').map(h => h.trim());
+        return lines.slice(1).map(line => {
+          const cols = line.split(',');
+          const row = {};
+          headers.forEach((h, i) => { row[h] = (cols[i] || '').trim(); });
+          return row;
+        });
+      }
+
+      function setAngka(id, value, formatDot) {
+        const el = document.getElementById(id);
+        if (!el) return;
+        el.dataset.target = value;
+        el.textContent = formatDot
+          ? value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.')
+          : value;
+      }
+
+      Promise.all([
+        fetch('data/mahasiswa.csv').then(r => r.text()),
+        fetch('data/dosen.csv').then(r => r.text())
+      ]).then(([mhsText, dsnText]) => {
+        const mhs = parseCSV(mhsText).filter(r => r['NIM (Nomor Induk Mahasiswa)']);
+        const dsn = parseCSV(dsnText).filter(r => r['NIP']);
+
+        const aktif = mhs.filter(r => r['Status'] === 'STUDENT').length;
+        const alumni = mhs.filter(r => r['Status'] === 'GRADUATED').length;
+        const angkatan = new Set(mhs.map(r => r['Angkatan'])).size;
+        const guruBesar = dsn.filter(r => r['Jabatan Fungsional'].startsWith('GB')).length;
+        const doktor = dsn.filter(r => r['Jabatan Fungsional'].includes('3')).length;
+        const rasio = Math.round(aktif / dsn.length);
+
+        setAngka('ang-total', mhs.length, true);
+        setAngka('ang-aktif', aktif);
+        setAngka('ang-alumni', alumni);
+        setAngka('ang-angkatan', angkatan);
+        setAngka('ang-dosen', dsn.length);
+        setAngka('ang-gb', guruBesar);
+        setAngka('ang-doktor', doktor);
+        setAngka('ang-rasio', rasio);
+
+        angkaLoaded = true;
+        runAngkaCountUp();
+      }).catch(() => {
+        document.querySelectorAll('#angka .angka-num[id]').forEach(el => { el.textContent = '?'; });
+      });
+
+      const _angkaSection = document.getElementById('angka');
+      if (_angkaSection) {
+        new IntersectionObserver(entries => {
+          if (entries[0].isIntersecting) {
+            angkaInView = true;
+            runAngkaCountUp();
+          } else {
+            angkaInView = false;
+          }
+        }, { root: document.querySelector('.main'), threshold: 0.2 }).observe(_angkaSection);
+      }
+    })();
 
     // ── Timeline image swap ──
     const tlItems = document.querySelectorAll('.tl-item[data-year]');
