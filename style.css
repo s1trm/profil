@@ -2888,3 +2888,84 @@ strong { font-weight: 700; }
 @media (max-width: 768px) {
   .expo-inner { grid-template-columns: 1fr; }
 }
+
+/* =========================================================
+   PRINT / PDF
+   ========================================================= */
+@media print {
+  @page {
+    size: A4 landscape;
+    margin: 0;
+  }
+
+  /* Force background colors & images to print */
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  /* Kill all transitions & animations */
+  *, *::before, *::after {
+    transition: none !important;
+    animation: none !important;
+  }
+
+  /* Hide sidebar and nav */
+  .sidebar { display: none !important; }
+
+  /* Full-width main, no sidebar offset */
+  .main {
+    margin-left: 0 !important;
+    width: 100% !important;
+  }
+
+  /* Each slide = one PDF page */
+  .slide {
+    min-height: 0 !important;
+    height: 100vh !important;
+    page-break-after: always;
+    break-after: page;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .slide:last-of-type {
+    page-break-after: avoid;
+    break-after: avoid;
+  }
+
+  /* Inner content: full width, tighter padding */
+  .slide-inner {
+    max-width: none !important;
+    padding: 36px 56px !important;
+  }
+
+  /* Hide YouTube iframe (cannot render in PDF) */
+  .expo-video-wrap iframe { display: none; }
+  .expo-video-wrap::after {
+    content: '▶ Video tersedia di: youtube.com/@d4trm-telu';
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    color: rgba(255,255,255,0.4);
+    font-size: 15px;
+    font-style: italic;
+  }
+
+  /* Kompetensi: pastikan grid tidak overflow */
+  .komp-grid { height: 70vh; }
+
+  /* PLO: 5 kolom bisa sempit, turunkan ke 4 */
+  .plo-grid { grid-template-columns: repeat(4, 1fr) !important; }
+
+  /* Kurikulum: sembunyikan tab content kecuali yang aktif */
+  .kk-panel { display: none !important; }
+  .kk-panel.active { display: block !important; }
+
+  /* Magang/Tracer/Beasiswa: sembunyikan panel non-aktif */
+  .mg-panel, .tr-panel, .bsw-panel { display: none !important; }
+  .mg-panel.active, .tr-panel.active, .bsw-panel.active { display: block !important; }
+}
