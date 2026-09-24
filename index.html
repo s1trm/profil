@@ -935,14 +935,51 @@
           </p>
         </div>
         <div class="expo-video">
-          <div class="expo-video-wrap">
-            <iframe
-              src="https://www.youtube.com/embed/7QNG1QXx2zE"
-              title="Expo TRM"
-              frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen>
-            </iframe>
+          <div class="expo-tabs">
+            <button class="expo-tab active" data-tab="expo-2026">Expo 2026</button>
+            <button class="expo-tab" data-tab="expo-2025">Expo 2025</button>
+          </div>
+          <div id="expo-2026" class="expo-panel active">
+            <div class="expo-video-wrap">
+              <iframe
+                src="https://www.youtube.com/embed/7QNG1QXx2zE"
+                title="Expo TRM 2026"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen>
+              </iframe>
+            </div>
+          </div>
+          <div id="expo-2025" class="expo-panel">
+            <div class="expo-video-grid">
+              <div class="expo-video-wrap expo-video-wrap--portrait">
+                <iframe
+                  src="https://www.youtube.com/embed/tnhy5YIzI-c"
+                  title="Expo TRM 2025 - Video 1"
+                  frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowfullscreen>
+                </iframe>
+              </div>
+              <div class="expo-video-wrap expo-video-wrap--portrait">
+                <iframe
+                  src="https://www.youtube.com/embed/WPFQ0paFzD0"
+                  title="Expo TRM 2025 - Video 2"
+                  frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowfullscreen>
+                </iframe>
+              </div>
+              <div class="expo-video-wrap expo-video-wrap--portrait">
+                <iframe
+                  src="https://www.youtube.com/embed/IzA--fWWyuA"
+                  title="Expo TRM 2025 - Video 3"
+                  frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowfullscreen>
+                </iframe>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -1773,6 +1810,18 @@
         tab.addEventListener('click', () => {
           document.querySelectorAll('.kk-tab').forEach(t => t.classList.remove('active'));
           document.querySelectorAll('.kk-panel').forEach(p => p.classList.remove('active'));
+          tab.classList.add('active');
+          document.getElementById(tab.dataset.tab).classList.add('active');
+        });
+      });
+    })();
+
+    // Expo TRM tab switching
+    (function() {
+      document.querySelectorAll('.expo-tab').forEach(tab => {
+        tab.addEventListener('click', () => {
+          document.querySelectorAll('.expo-tab').forEach(t => t.classList.remove('active'));
+          document.querySelectorAll('.expo-panel').forEach(p => p.classList.remove('active'));
           tab.classList.add('active');
           document.getElementById(tab.dataset.tab).classList.add('active');
         });
