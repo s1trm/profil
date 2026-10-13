@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>S1 Terapan Teknologi Rekayasa Multimedia — Universitas Telkom</title>
+  <title>Sarjana Terapan Teknologi Rekayasa Multimedia — Universitas Telkom</title>
   <link rel="stylesheet" href="style.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -105,15 +105,14 @@
             <!-- <span class="badge-akreditasi">AKREDITASI UNGGUL · BAN-PT 2022</span> -->
           <!-- </div> -->
           <h1 class="hero-title">
-          S1 Terapan
+          Sarjana Terapan
             <span class="gold">T</span>eknologi<br />
             <span class="gold">R</span>ekayasa<br />
             <span class="gold">M</span>ultimedia<br />
           </h1>
           <p class="hero-sub"> Fakultas Ilmu Terapan · Universitas Telkom</p>
           <p class="hero-desc">
-            Program pendidikan vokasi yang memadukan keahlian
-            pengembangan perangkat lunak dan perangkat keras multimedia <b class="terra">INTERAKTIF</b>,
+            Program studi vokasi yang memiliki kompetensi dalam pengembangan perangkat lunak dan perangkat keras multimedia <b class="terra">INTERAKTIF</b>,
             pengembangan konten <b class="terra">KREATIF</b>, dan kewirausahaan
             berbasis teknologi yang <b class="terra">INOVATIF</b>.
           </p>
@@ -140,33 +139,16 @@
           </div>
         </div>
         <div class="hero-visual">
-          <div class="hero-photo-grid">
-
-            <!-- Kolom kiri: sliding track vr2 → sim1 -->
-            <div class="hpg-left">
-              <div class="hpg-track">
-                <img src="gambar/vr2.png"  alt="Aktivitas VR" />
-                <img src="gambar/sim1.png" alt="Racing Simulator" />
-              </div>
-              <div class="hpg-hint">
-                <span class="hpg-hint-icon">&#8593;</span>
-                <span>hover</span>
-              </div>
+          <div class="hpg-collage" id="hpgCollage">
+            <div class="hpg-cell hpg-cell-top">
+              <img src="gambar/beranda2.jpg" alt="Kegiatan Prodi" draggable="false" />
             </div>
-
-            <!-- Kolom kanan: baris 1 statis, baris 2-3 sliding -->
-            <img src="gambar/vr1.png" alt="VR Headset" class="hpg-r1" />
-            <div class="hpg-right">
-              <div class="hpg-track-r">
-                <img src="gambar/podcast1.png"      alt="Studio Rekaman" />
-                <img src="gambar/expo_fakultas.png" alt="Expo Fakultas"  style="object-position: center 25%;" />
-              </div>
-              <div class="hpg-hint">
-                <span class="hpg-hint-icon">&#8593;</span>
-                <span>hover</span>
-              </div>
+            <div class="hpg-cell hpg-cell-bl">
+              <img src="gambar/beranda1.jpg" alt="Kegiatan Prodi" draggable="false" />
             </div>
-
+            <div class="hpg-cell hpg-cell-br">
+              <img src="gambar/beranda3.jpg" alt="Kegiatan Prodi" draggable="false" />
+            </div>
           </div>
         </div>
       </div>
@@ -184,11 +166,11 @@
       <div class="komp-grid">
 
         <!-- Panel 1: Pengembangan Interaktif (besar, kiri) -->
-        <div class="komp-card komp-main" style="background-image: url('gambar/vr2.png'); background-position: center 25%;">
+        <div class="komp-card komp-main" style="background-image: url('gambar/beranda1.jpg'); background-position: center 25%;">
           <div class="komp-overlay"></div>
           <div class="komp-body">
             <div class="komp-label">01 — Pengembangan Sistem Multimedia Interaktif</div>
-            <h3 class="komp-title">Game, AR, VR<br>&amp; Perangkat Keras<br>Multimedia</h3>
+            <h3 class="komp-title">Game, AR, VR, <br>&amp; Perangkat Keras<br>Multimedia</h3>
             <ul class="komp-list">
               <li>Game</li>
               <li>Augmented Reality (AR)</li>
@@ -200,22 +182,21 @@
         </div>
 
         <!-- Panel 2: Konten Visual & Media -->
-        <div class="komp-card" style="background-image: url('gambar/podcast1.png'); background-position: center 40%;">
+        <div class="komp-card" style="background-image: url('gambar/beranda2.jpg'); background-position: center 40%;">
           <div class="komp-overlay"></div>
           <div class="komp-body">
             <div class="komp-label">02 — Pembuatan Konten Digital</div>
-            <h3 class="komp-title">Grafis, Animasi<br>&amp; Video/Audio</h3>
+            <h3 class="komp-title">Grafis, Animasi, <br>&amp; Video/Audio</h3>
             <ul class="komp-list">
               <li>Desain Grafis 2D &amp; 3D</li>
               <li>Animasi Digital</li>
-              <li>Produksi Video</li>
-              <li>Produksi Audio</li>
+              <li>Produksi Audio/Video</li>
             </ul>
           </div>
         </div>
 
         <!-- Panel 3: Technopreneur -->
-        <div class="komp-card komp-techno" style="background-image: url('gambar/startup.png'); background-position: center center;">
+        <div class="komp-card komp-techno" style="background-image: url('gambar/techno1.jpg'); background-position: center center;">
           <div class="komp-overlay"></div>
           <div class="komp-techno-bg"></div>
           <div class="komp-body">
@@ -224,7 +205,6 @@
             <ul class="komp-list">
               <li>Startup Teknologi Digital</li>
               <li>Monetisasi Konten Kreatif</li>
-              <li>Manajemen Proyek</li>
             </ul>
           </div>
         </div>
@@ -1086,6 +1066,55 @@
         if (target) target.scrollIntoView({ behavior: 'smooth' });
       });
     });
+
+    // Hero photo collage: hover memperbesar satu sel penuh frame; drag untuk pan foto yang kepotong
+    (function () {
+      const cells = document.querySelectorAll('#hpgCollage .hpg-cell');
+
+      cells.forEach(cell => {
+        const img = cell.querySelector('img');
+        let dragging = false;
+        let startX = 0, startY = 0, startPosX = 50, startPosY = 50;
+
+        function getPos() {
+          const parts = (img.style.objectPosition || '50% 50%').split(' ');
+          const x = parseFloat(parts[0]);
+          const y = parseFloat(parts[1]);
+          return { x: isNaN(x) ? 50 : x, y: isNaN(y) ? 50 : y };
+        }
+
+        cell.addEventListener('pointerdown', e => {
+          dragging = true;
+          cell.classList.add('is-dragging');
+          startX = e.clientX;
+          startY = e.clientY;
+          const pos = getPos();
+          startPosX = pos.x;
+          startPosY = pos.y;
+          cell.setPointerCapture(e.pointerId);
+          e.preventDefault();
+        });
+
+        cell.addEventListener('pointermove', e => {
+          if (!dragging) return;
+          const rect = cell.getBoundingClientRect();
+          const dx = e.clientX - startX;
+          const dy = e.clientY - startY;
+          const newX = Math.min(100, Math.max(0, startPosX - (dx / rect.width) * 100));
+          const newY = Math.min(100, Math.max(0, startPosY - (dy / rect.height) * 100));
+          img.style.objectPosition = `${newX}% ${newY}%`;
+        });
+
+        function stopDrag() {
+          dragging = false;
+          cell.classList.remove('is-dragging');
+        }
+
+        cell.addEventListener('pointerup', stopDrag);
+        cell.addEventListener('pointercancel', stopDrag);
+        cell.addEventListener('pointerleave', stopDrag);
+      });
+    })();
 
     // Count-up animation on hover
     function easeOutCubic(t) { return 1 - Math.pow(1 - t, 3); }
